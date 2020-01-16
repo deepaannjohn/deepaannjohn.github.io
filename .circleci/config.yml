@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:latest
-    working_directory: ~/project/gatsby
     filters:
       branches:
         only: dev
@@ -24,6 +23,9 @@ jobs:
       - run:
           name: Gatsby build site
           command: npm build
+      - run:
+          name: ls
+          command: ls
       - run:
           name: echo
           command: echo $CIRCLE_WORKING_DIRECTORY
