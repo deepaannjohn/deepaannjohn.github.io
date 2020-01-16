@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+    filters:
+      branches:
+        only: dev
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - dependencies-
+          # fallback to using the latest cache if no exact match is found
+          - dependencies-
+      - run:
+          name: Install
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: dependencies-
+      - run:
+          name: Gatsby build site
+          command: npm build
+      - run:
+          name: echo
+          command: echo 'first circleci build'

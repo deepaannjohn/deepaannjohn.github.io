@@ -1,10 +1,10 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+title: Linux
+date: "2020-01-15T22:12:03.284Z"
+description: "Linux for beginners"
 ---
 
-This is my first post on my new fake blog! How exciting!
+A few commands to help beginners in Linux!
 
 I'm sure I'll write a lot more interesting things in the future.
 
