@@ -36,23 +36,16 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:latest
-    filters:
-      branches:
-        only: master
     steps:
-      - checkout
       - attach_workspace:
           at: gatsby/workspace  
-      - run:
-          name: ls
-          command: ls
       - run:
           name: ls workspace
           command: ls gatsby/workspace
       - run:
           name: Install deploy dependencies
           command: |
-            npm install -g gh-pages
+            npm install gh-pages
             git config user.email "deepa.ann.john1@gmail.com"
             git config user.name "deepaannjohn"
       - run:
