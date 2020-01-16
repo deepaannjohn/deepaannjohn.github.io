@@ -46,8 +46,6 @@ jobs:
           name: Install deploy dependencies
           command: |
             yarn global add gh-pages
-            git config user.email "deepa.ann.john1@gmail.com"
-            git config user.name "deepaannjohn"
       - run:
           name: Deploy docs to master branch
           command: gh-pages -d gatsby/workspace -b master -e .
