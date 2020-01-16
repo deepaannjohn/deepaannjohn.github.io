@@ -23,7 +23,7 @@ jobs:
           key: dependencies-
       - run:
           name: Gatsby build site
-          command: npm build
+          command: npm run build
           working_directory: gatsby
       - run:
           name: ls
