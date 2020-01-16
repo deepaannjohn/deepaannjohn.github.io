@@ -44,7 +44,7 @@ jobs:
           command: ls gatsby/workspace
       - run:
           name: Install deploy dependencies
-          command: ENV NPM_CONFIG_PREFIX=/home/node/.npm-global && npm --global install gh-pages
+          command: npm -g install gh-pages --unsafe-perm
       - run:
           name: Deploy docs to master branch
           command: gh-pages -d gatsby/workspace -b master -e .
