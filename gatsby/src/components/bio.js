@@ -53,6 +53,13 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
+      <p>
+        Written by <strong>{author}</strong> who lives and works in Bangalore, 
+        India.
+        {` `}
+        <a href={`https://www.linkedin.com/in/${social.LinkedIn}`}>
+        </a>
+      </p>
     </div>
   )
 }
