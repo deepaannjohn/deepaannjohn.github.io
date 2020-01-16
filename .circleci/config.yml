@@ -27,7 +27,7 @@ jobs:
           working_directory: gatsby
       - persist_to_workspace:
           working_directory: gatsby
-          root: public
+          root: ~/public
           paths:
             - '*'
       - run:
@@ -42,7 +42,7 @@ jobs:
           at: workspace  
       - run:
           name: deploy
-          command: ls
+          command: ls ~/workspace
           working_directory: gatsby
 workflows:
   version: 2
