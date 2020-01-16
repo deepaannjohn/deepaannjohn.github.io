@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:latest
-    working_directory: ~/gatsby
+    working_directory: ~/deepaannjohn.github.io/gatsby
     filters:
       branches:
         only: dev
