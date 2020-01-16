@@ -1,7 +1,7 @@
 ---
 title: Linux
 date: "2020-01-15T22:12:03.284Z"
-description: "Linux for beginners"
+description: "Linux quick start"
 ---
 
 A few commands to help beginners in Linux!
