@@ -43,11 +43,8 @@ jobs:
           name: ls workspace
           command: ls gatsby/workspace
       - run:
-          name: Install deploy dependencies
-          command: npm -g install gh-pages --unsafe-perm
-      - run:
           name: Deploy docs to master branch
-          command: gh-pages -d gatsby/workspace -b master -e .
+          command: npm run deploy
 workflows:
   version: 2
   build-and-deploy:
