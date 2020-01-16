@@ -2,11 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
     author: `Deepa Ann John`,
-    description: `A technical and miscellaneous blog`,
-    siteUrl: `www.linkedin.com/in/deepa-ann-john-bb801924`,
-    social: {
-      linkedin: `www.linkedin.com/in/deepa-ann-john-bb801924`,
-    },
+    description: `My blog`,
   },
   plugins: [
     {
