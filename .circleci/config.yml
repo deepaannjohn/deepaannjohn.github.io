@@ -29,6 +29,18 @@ jobs:
           name: ls
           command: ls
           working_directory: gatsby
+  deploy:
+    steps:
       - run:
-          name: echo
-          command: echo $CIRCLE_WORKING_DIRECTORY
+        name: deploy
+        command: echo ' deploy successful'
+        working_directory: gatsby
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build  
+       

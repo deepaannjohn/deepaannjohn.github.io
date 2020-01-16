@@ -1,0 +1,3 @@
+git checkout master
+# Add site files...
+git push
