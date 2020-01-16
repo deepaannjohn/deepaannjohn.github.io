@@ -25,10 +25,6 @@ jobs:
           name: Gatsby build site
           command: npm run build
           working_directory: gatsby
-      - persist_to_workspace:
-          root: gatsby/public
-          paths:
-            - '*'
       - run:
           name: ls
           command: ls
