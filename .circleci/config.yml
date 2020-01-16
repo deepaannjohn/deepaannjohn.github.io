@@ -34,9 +34,9 @@ jobs:
       - image: circleci/node:latest
     steps:
       - run:
-        name: deploy
-        command: echo ' deploy successful'
-        working_directory: gatsby
+          name: deploy
+          command: echo ' deploy successful'
+          working_directory: gatsby
 workflows:
   version: 2
   build-and-deploy:
