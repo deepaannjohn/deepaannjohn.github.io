@@ -44,7 +44,7 @@ jobs:
           command: ls gatsby/workspace
       - run:
           name: Install deploy dependencies
-          command: npm --global config set user root && npm --global install gh-pages
+          command: ENV NPM_CONFIG_PREFIX=/home/node/.npm-global && npm --global install gh-pages
       - run:
           name: Deploy docs to master branch
           command: gh-pages -d gatsby/workspace -b master -e .
