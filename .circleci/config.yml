@@ -38,7 +38,7 @@ jobs:
       - image: circleci/node:latest
     steps:
       - attach_workspace:
-          at: workspace  
+          at: gatsby/workspace  
       - run:
           name: deploy
           command: ls gatsby/workspace
