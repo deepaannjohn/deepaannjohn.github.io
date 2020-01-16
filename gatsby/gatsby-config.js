@@ -57,7 +57,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
+        name: `My scratch pad`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
