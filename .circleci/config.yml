@@ -26,8 +26,7 @@ jobs:
           command: npm run build
           working_directory: gatsby
       - persist_to_workspace:
-          working_directory: gatsby
-          root: ~/public
+          root: gatsby/public
           paths:
             - '*'
       - run:
@@ -42,8 +41,7 @@ jobs:
           at: workspace  
       - run:
           name: deploy
-          command: ls ~/workspace
-          working_directory: gatsby
+          command: ls gatsby/workspace
 workflows:
   version: 2
   build-and-deploy:
