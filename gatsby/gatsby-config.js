@@ -3,7 +3,7 @@ module.exports = {
     title: `My scratch pad`,
     author: `Deepa Ann John`,
     description: `For my quick reference`,
-    siteUrl: `www.linkedin.com/in/deepa-ann-john-bb801924`,
+    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       LinkedIn: `deepa-ann-john-bb801924`,
     },
