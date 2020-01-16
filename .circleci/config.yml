@@ -45,6 +45,7 @@ jobs:
       - run:
           name: Deploy docs to master branch
           command: npm run deploy
+          working_directory: gatsby
 workflows:
   version: 2
   build-and-deploy:
