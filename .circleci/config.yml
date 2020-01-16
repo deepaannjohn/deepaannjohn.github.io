@@ -33,15 +33,6 @@ jobs:
           name: ls
           command: ls
           working_directory: gatsby
-  deploy:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - attach_workspace:
-          at: gatsby/workspace  
-      - run:
-          name: ls workspace
-          command: ls gatsby/workspace
       - run:
           name: Deploy docs to master branch
           command: npm run deploy

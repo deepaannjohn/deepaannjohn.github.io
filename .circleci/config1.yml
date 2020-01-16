@@ -5,11 +5,8 @@ jobs:
       - image: circleci/node:latest
     filters:
       branches:
-        only: master
+        only: dev
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "xx:xx:xx:xx:11:22:33:44:55:66:77:88:99:xx:xx:xx"
       - checkout
       - restore_cache:
           keys:
@@ -18,17 +15,43 @@ jobs:
           - dependencies-
       - run:
           name: Install
-          command: yarn install
+          command: npm install
+          working_directory: gatsby
       - save_cache:
           paths:
             - node_modules
           key: dependencies-
       - run:
           name: Gatsby build site
-          command: yarn build
+          command: npm run build
+          working_directory: gatsby
+      - persist_to_workspace:
+          root: gatsby/public
+          paths:
+            - '*'
       - run:
-          name: Prepare shell commands
-          command: cp .scripts/gatsby-deploy.sh ../ && chmod +x ../gatsby-deploy.sh
+          name: ls
+          command: ls
+          working_directory: gatsby
+  deploy:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - attach_workspace:
+          at: gatsby/workspace  
       - run:
-          name: Run deploy scripts
-          command: ../gatsby-deploy.sh
+          name: ls workspace
+          command: ls gatsby/workspace
+      - run:
+          name: Deploy docs to master branch
+          command: npm run deploy
+          working_directory: gatsby
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build  
+       
