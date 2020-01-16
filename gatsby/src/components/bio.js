@@ -54,7 +54,7 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong>
+        This blog is more like a self reference and is owned and maintained by <strong>{author}</strong>
         {` `}
         <a href={`https://www.linkedin.com/in/${social.LinkedIn}`}>
         </a>
