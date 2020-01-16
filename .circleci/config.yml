@@ -26,4 +26,4 @@ jobs:
           command: npm build
       - run:
           name: echo
-          command: echo 'first circleci build'
+          command: echo $CIRCLE_WORKING_DIRECTORY
