@@ -30,6 +30,8 @@ jobs:
           command: ls
           working_directory: gatsby
   deploy:
+    docker:
+      - image: circleci/node:latest
     steps:
       - run:
         name: deploy
