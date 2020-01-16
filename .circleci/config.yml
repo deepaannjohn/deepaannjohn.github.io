@@ -25,6 +25,11 @@ jobs:
           name: Gatsby build site
           command: npm run build
           working_directory: gatsby
+      - persist_to_workspace:
+          working_directory: gatsby
+          root: public
+          paths:
+            - '*'
       - run:
           name: ls
           command: ls
@@ -33,9 +38,11 @@ jobs:
     docker:
       - image: circleci/node:latest
     steps:
+      - attach_workspace:
+          at: workspace  
       - run:
           name: deploy
-          command: echo ' deploy successful'
+          command: ls
           working_directory: gatsby
 workflows:
   version: 2
