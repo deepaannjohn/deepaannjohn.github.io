@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Deepa's Blog`,
+    title: `Tech Notes and other thoughts`,
     author: `Deepa Ann John`,
     description: `For my quick reference`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
@@ -57,7 +57,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Deepa's Blog`,
+        name: `Tech notes and other thoughts`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
