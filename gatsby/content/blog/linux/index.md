@@ -1,10 +1,8 @@
 ---
-title: Linux
+title: Linux quick start
 date: "2020-01-15T22:12:03.284Z"
-description: "Linux quick start"
+description: "Some basic inforamtion to get started with Linux"
 ---
-
-Some basic Linux and a few commands to help beginners in Linux!
 
 **Linux File System**
 All files and diectories including OS directories and files in Linux are under the root directory (/)

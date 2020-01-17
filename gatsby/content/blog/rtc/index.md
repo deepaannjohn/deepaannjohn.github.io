@@ -1,7 +1,7 @@
 ---
-title: New Beginnings
-date: "2015-05-28T22:40:32.169Z"
-description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
+title: Integrating with IBM RTC from NodeJS
+date: "2020-01-17T22:40:32.169Z"
+description: Pulling some information from IBM Rational Team Concert (RTC) or currently EWM from nodejs environment.
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and
