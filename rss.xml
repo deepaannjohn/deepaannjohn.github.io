@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Deepa's Blog]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 16 Jan 2020 17:55:23 GMT</lastBuildDate><item><title><![CDATA[Linux]]></title><description><![CDATA[Some basic Linux and a few commands to help beginners in Linux! Linux File System
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and other thoughts]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 17 Jan 2020 08:15:49 GMT</lastBuildDate><item><title><![CDATA[Linux]]></title><description><![CDATA[Some basic Linux and a few commands to help beginners in Linux! Linux File System
 All files and diectories including OS directories and…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/linux/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/linux/</guid><pubDate>Wed, 15 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;Some basic Linux and a few commands to help beginners in Linux!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Linux File System&lt;/strong&gt;
 All files and diectories including OS directories and files in Linux are under the root directory (/)
@@ -17,115 +17,111 @@ ls / will list of them&lt;/p&gt;
 /proc
 /dev
 /sys&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;few commands&lt;/strong&gt;
-pwd or echo $PWD - command which displays the current (present) working directory&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;few useful commands&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;pwd or echo $PWD - command which displays the current (present) working directory&lt;/p&gt;
 &lt;p&gt;env - displays all environment variables&lt;/p&gt;
 &lt;p&gt;| - pipe redirects the output of the command to the next command
 eg: env | less (less is a file reader which will display data page by page)&lt;/p&gt;
-&lt;p&gt;myval=5 (no space in between. This will assign 5 to myval in that bash shell)
-export myval=5 will set the value for all child shells also&lt;/p&gt;
 &lt;p&gt;history - displays last run 1500 commands
 timedatectl - displays the current time zone used by machine&lt;/p&gt;
-&lt;p&gt;man &lt;command&gt; - to get help use manualpages
-or wget —help
-info - to get the info for all installed utilities&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;package managers&lt;/strong&gt;
-debian based (ubuntu, mint and kali) - apt (online)/dpkg(local)
-rhel/fedora/centos - yum or dnf(online) / rpm (local) - dnf will eventually replace yum&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;desktops&lt;/strong&gt;
-cinnamon / mate
-kde
-gnome (ubuntu uses it)
-user can install and easily switch between any of these desktops&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Are you on windows? Want to quickly try these?&lt;/strong&gt;
-Pull an ubuntu image and run it
-docker run -it ubuntu bash (prefix winpty if you are using Git Bash on windows)&lt;/p&gt;
-&lt;p&gt;when a new terminal is opened, a new shell is formed using a hidden file in home directory called .bashrc
-its in home/user
-for root
-its in /root folder
-if you want to changeany shell values, this is one of the files to edit
-this .bashrc file is applied to only non login shell
-login shell is when you use ssh login to login. this uses .profile file and some other files. .profile uses.bashrc values as well/. .profile is also in the same location as .bashrc
-there is a profile file in /etc also&lt;/p&gt;
-&lt;p&gt;there are other shells also like ksh, sh&lt;/p&gt;
-&lt;p&gt;to find pout the shell defaulty allocated,
-check the passwd file in /etc&lt;/p&gt;
-&lt;p&gt;ls -a or ls —all   =&gt; list all files including hidden =&gt; . means file is hidden
+&lt;p&gt;ls -a or ls —all   =&gt; lists all files including hidden =&gt; . int he beginning of the file name means the file is hidden
 ip add (ip is the command addr argument gets the ip address or you can use ip a)
-ls -l (list all propertieties
+ls -l (list all properties as well)
 ls -l /filelocation
-combine commands ls -ltr
-command line shortcuts
-use tab for auto complete&lt;/p&gt;
-&lt;p&gt;type cd from anywhere and you will be back to your home directory&lt;/p&gt;
+You can combine aregumets passsed to the command like ls -ltr&lt;/p&gt;
+&lt;p&gt;Type cd from anywhere and you will be back to your home directory&lt;/p&gt;
 &lt;p&gt;touch file1 file2 file3 - creates new files
 rm *
-removes all file sin dir&lt;/p&gt;
+removes all files in directory&lt;/p&gt;
 &lt;p&gt;backslash - escapa character
-touch this\ is\ my\ file&lt;/p&gt;
+touch this\ is\ my\ file =&gt; file ‘this is my file’ created&lt;/p&gt;
 &lt;p&gt;mkdir folderame&lt;/p&gt;
-&lt;p&gt;new file creation
+&lt;p&gt;nano is a utility that can be sued to create and edit files on linux.
 nano file1
 ctrl+x  =&gt; y for save&lt;/p&gt;
 &lt;p&gt;touch filename to create empty file&lt;/p&gt;
 &lt;p&gt;copy file
 cp file1 dirname
-cp file* dirname&lt;/p&gt;
-&lt;p&gt;questionmark for single digit&lt;/p&gt;
-&lt;p&gt;mv - move
-. or ./ current dir
+cp file* dirname
+cp file? dirname  - questionmark for single character matching,  * for multiple character matching&lt;/p&gt;
+&lt;p&gt;mv - move&lt;/p&gt;
+&lt;p&gt;. or ./ current dir
 .. or ../ previous dir&lt;/p&gt;
 &lt;p&gt;rmdir to remove diretcory - directory shud be empty&lt;/p&gt;
-&lt;p&gt;searcj the files
+&lt;p&gt;Search the files
 locate command
 locate ‘string’  (run sudo updatedb to get recent files also)&lt;/p&gt;
-&lt;p&gt;less filename - prints a page a t a time
-head - only 10 lines
-tail last&lt;/p&gt;
+&lt;p&gt;less filename -&gt; prints one page at a time
+head filename -&gt; prints only first 10 lines
+tail filename -&gt; prints last 10 lines&lt;/p&gt;
 &lt;p&gt;pipe
-cat filename | grep string &gt;&gt; newfilenae&lt;/p&gt;
+cat filename | grep string &gt;&gt; newfilename&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;append
 replace&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;nano filename&lt;/p&gt;
 &lt;p&gt;wc - wordcount &lt;/p&gt;
 &lt;p&gt;standard stream
-standard in - stdin - 0
+standardin - stdin - 0
 stdout - 1
 stderr -2&lt;/p&gt;
-&lt;p&gt;redirection
-mysql -u root -p &amp;#x3C;password.txt&lt;/p&gt;
-&lt;p&gt;echo Hello &gt; newfile&lt;/p&gt;
-&lt;p&gt;working with archives
-in liux -&gt; tar is the archival mechanism
+&lt;p&gt;redirection from stdin / stdout
+mysql -u root -p &amp;#x3C;password.txt
+echo Hello &gt; newfile&lt;/p&gt;
+&lt;p&gt;man &lt;command&gt; - to get help use manualpages
+or wget —help
+info - to get the info for all installed utilities&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;package managers&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;debian based (ubuntu, mint and kali) - apt (online)/dpkg(local)
+rhel/fedora/centos - yum or dnf(online) / rpm (local) - dnf will eventually replace yum&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;desktops&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;cinnamon / mate
+kde
+gnome (ubuntu uses it)
+user can install and easily switch between any of these desktops&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Are you on windows? Want to quickly try these?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pull an ubuntu image and run it
+docker run -it ubuntu bash (prefix winpty if you are using Git Bash on windows)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;shells&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;myval=5 (no space in between. This will assign 5 to myval in that bash shell)
+export myval=5 will set the value for all child shells also&lt;/p&gt;
+&lt;p&gt;When a new terminal is opened, a new shell is formed using a hidden file in home/user directory called .bashrc
+If you want to change any shell values (eg: colour of the shell), this is one of the files to edit.
+.bashrc file is applied to only non login shell.
+Login shell is the shell you are in use ssh login to login. This uses .profile file and some other files.
+.profile uses.bashrc values as well/. .profile is also in the same location as .bashrc
+There is a profile file in /etc also&lt;/p&gt;
+&lt;p&gt;There are other shells also like ksh, sh
+To find out the default shell, check the passwd file in /etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;working with archives&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In Linux -&gt; tar is the archival mechanism (like zip in windows)
 most files are .tar.gz
 .tar tar archive
-.gz tells its compressed  using gzip also&lt;/p&gt;
-&lt;p&gt;to unpack
+.gz tells its compressed  using gzip algorithm&lt;/p&gt;
+&lt;p&gt;To unpack
 tar xzf &lt;filename&gt;
 x = xtract
 z = zipped
 f - filename is following &lt;/p&gt;
-&lt;p&gt;tar czf newarchive.tar.gz foldernametocompress
+&lt;p&gt;To create new archive
+tar czf newarchive.tar.gz foldernametocompress
 c  create&lt;/p&gt;
-&lt;p&gt;2 steps archive
+&lt;p&gt;2 steps archive si as follows:
 tar cf
 and then
 gzip tar file&lt;/p&gt;
-&lt;p&gt;network
-install iproute2 package if ip command not working
-ip route show
-root@e838c710c3d6:~# ip route show
+&lt;p&gt;&lt;strong&gt;Networking&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Install iproute2 package if ip command not working
+ip route show =&gt; another command to view the ip address
+sample output:
 default via 172.17.0.1 dev eth0
 172.17.0.0/16 dev eth0 proto kernel scope link src 172.17.0.2&lt;/p&gt;
-&lt;p&gt;172.17.0.2 is the ip address&lt;/p&gt;
-&lt;p&gt;if the above two not present, there is come issue&lt;/p&gt;
-&lt;p&gt;ip addr - to shw ip addres
-root@e838c710c3d6:~# ip addr
+&lt;p&gt;172.17.0.2 is the ip address
+if the above two not present, there is some networking issue&lt;/p&gt;
+&lt;p&gt;ip addr -&gt; also displays ip address
+sample output:
 1: lo: &amp;#x3C;LOOPBACK,UP,LOWER&lt;em&gt;UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 inet 127.0.0.1/8 scope host lo
@@ -140,15 +136,15 @@ inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
 valid&lt;em&gt;lft forever preferred&lt;/em&gt;lft forever&lt;/p&gt;
 &lt;p&gt;1 =&gt; local loopback
 1086 =&gt; ip address&lt;/p&gt;
-&lt;p&gt;ifconfig similar to ip addr&lt;/p&gt;
+&lt;p&gt;ifconfig - another command similar to ip addr&lt;/p&gt;
 &lt;p&gt;netstat -i
-all network inerfaces&lt;/p&gt;
-&lt;p&gt;netstat -l list all prorts&lt;/p&gt;
-&lt;p&gt;dns
-map numeric ip addresses to human readabale addresses
-for that db would be needed and dns servers maintain that mapping&lt;/p&gt;
-&lt;p&gt;to check if dns is reachable from my machine..use host commadn&lt;/p&gt;
-&lt;p&gt;install host
+displays all network interfaces&lt;/p&gt;
+&lt;p&gt;netstat -l lists all listening ports&lt;/p&gt;
+&lt;p&gt;DNS
+DNS (Domain Name Servers) map numeric ip addresses to human readabale addresses.
+DSN servers maintain that mapping.&lt;/p&gt;
+&lt;p&gt;To check if dns is reachable from your machine, use host command&lt;/p&gt;
+&lt;p&gt;sample output of host command
 host google.com
 google.com has address 172.217.12.142
 google.com has IPv6 address 2607:f8b0:4006:819::200e
@@ -157,7 +153,7 @@ google.com mail is handled by 10 aspmx.l.google.com.
 google.com mail is handled by 20 alt1.aspmx.l.google.com.
 google.com mail is handled by 30 alt2.aspmx.l.google.com.
 google.com mail is handled by 40 alt3.aspmx.l.google.com.&lt;/p&gt;
-&lt;p&gt;root@e838c710c3d6:~# cat /etc/hosts
+&lt;p&gt;/etc/hosts - This file can be used to set up your own domain names locally. This will override DNS mappings
 127.0.0.1       localhost
 ::1     localhost ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -165,30 +161,27 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 172.17.0.2      e838c710c3d6&lt;/p&gt;
-&lt;p&gt;use this file to se your own domain names&lt;/p&gt;
-&lt;p&gt;remote connections and ssh
-openssh - provides capabilities for ssh as well as security (session encryption)&lt;/p&gt;
-&lt;p&gt;hot to do ssh
-ssh username@ipassres
-then type password when propted&lt;/p&gt;
-&lt;p&gt;login using keypair to an amazon server / aws instance
+&lt;p&gt;&lt;strong&gt;Remote connections and ssh&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Openssh - provides capabilities for SSH as well as session security (session encryption)&lt;/p&gt;
+&lt;p&gt;ssh command - ssh username@ipaddress
+Ttype password when prompted to login&lt;/p&gt;
+&lt;p&gt;Login using keypair to an amazon server / aws instance
 ssh -i .home/mykey.pem username@ipaddress&lt;/p&gt;
-&lt;p&gt;scp
-securely copy
-scp - securely copy file between machine
+&lt;p&gt;SCP - Secure Copy
+Securely copies files between machines
 scp localfilelocation username@ipaddress:remotefilelocation&lt;/p&gt;
-&lt;p&gt;linux scription / bash scripting
-names will be like myfile.sh
-sh is not necessary thiugh..its just to identify script file&lt;/p&gt;
-&lt;p&gt;first line of the script file is to tell linux that its a script file and which shell interpreter has to be used&lt;/p&gt;
-&lt;h1&gt;!/bin/bash  -(actual location of the bash interpreter)&lt;/h1&gt;
-&lt;p&gt;this line is called shebang (read as shbang)
-decalre -i number1 (integer is -i)
+&lt;p&gt;&lt;strong&gt;linux scripting / bash scripting&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Naming conventionf or scripting files is myfile.sh
+.sh a convention to identify the scripting files and not a system requirement.&lt;/p&gt;
+&lt;p&gt;First line of the script file is to tell linux that its a script file and which shell interpreter has to be used&lt;/p&gt;
+&lt;h1&gt;!/bin/bash  - (actual location of the bash interpreter)&lt;/h1&gt;
+&lt;p&gt;This line is called shebang (read as shbang)
+few scripting commands:
+declare -i number1 (integer is -i)
 read number1  (wait for user input)
-exit 0 (to exit) (not necessary)
 use $number1 to access the actual value&lt;/p&gt;
 &lt;p&gt;chmod +x filename.sh  (to make it executable)&lt;/p&gt;
-&lt;p&gt;how to run run
+&lt;p&gt;how to run a script file
 ./filename.sh&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/new-beginnings/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/new-beginnings/</guid><pubDate>Thu, 28 May 2015 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
