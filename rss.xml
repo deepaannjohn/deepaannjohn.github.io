@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and few other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 17 Jan 2020 11:38:34 GMT</lastBuildDate><item><title><![CDATA[Upgrade nodejs from V8 to V12]]></title><description><![CDATA[In Windows OS Current version
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 19 Jan 2020 13:28:46 GMT</lastBuildDate><item><title><![CDATA[Getting started with GatsbyJS]]></title><description><![CDATA[GatsbyJS is a front end framework to build static websites and 
+is based on JAMStack architecture. JAMStack architecture GatsbyJS is built…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/gatsby/gatsby/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/gatsby/gatsby/</guid><pubDate>Sun, 19 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;GatsbyJS is a front end framework to build static websites and
+is based on JAMStack architecture.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://jamstack.org/&quot;&gt;JAMStack architecture&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;GatsbyJS is built on ReactJS, GraphQL, WebPack and JavaScript&lt;/p&gt;
+&lt;p&gt;ReactJS (to build user interfaces)
+GraphQL (Query language to get the data that you want in the format you specify)&lt;/p&gt;
+&lt;p&gt;Static vs Dynamic Sites / Rendering
+How Gatsby works? (Static rendering)
+Using GraphQL API, blog data from mark down files are fetched and then Gatsby renders / genrates the final html (during build itself).
+This same content (html file) is rendered for any user accessing the site.&lt;/p&gt;
+&lt;p&gt;Dynamic / Server Side rendering example
+Site fetches catalogue information of a company
+API to fetch Data fetches data from Database
+Pages dynamically genrated / rendered in server
+Then passed to the client side&lt;/p&gt;
+&lt;p&gt;To get started:
+Install nodejs and gatsby-cli npm package globally to start developy gatsby based webistes
+Use starter templates for a quick start. Starter templates are Boiler plater Gatsby sites.&lt;/p&gt;
+&lt;p&gt;Select any one starter template
+Then create a new gatsby site as below
+gatsby new mysite &lt;a href=&quot;https://github.com/gatsbyjs/gatsby-starter-default.git&quot;&gt;https://github.com/gatsbyjs/gatsby-starter-default.git&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To view the site, use the command ‘gatsby develop’
+You can now view gatsby-starter-default in the browser.
+&lt;a href=&quot;http://localhost:8000/&quot;&gt;http://localhost:8000/&lt;/a&gt;
+⠀
+View GraphiQL, an in-browser IDE, to explore your site’s data and schema
+&lt;a href=&quot;http://localhost:8000/___graphql&quot;&gt;http://localhost:8000/___graphql&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Gatsby Pages are react components (a reusable piece of Javascript that encapsulates related presentation and logic)&lt;/p&gt;
+&lt;p&gt;File names and routing in Gatsby
+src/pages in Gatsby is mapped to the route
+Eg:
+index.js    ----&gt;   /
+about.js    ----&gt;    /about
+contact.js    ----&gt;    /contact
+hello.js    ----&gt;    /hello&lt;/p&gt;
+&lt;p&gt;Static react component pages can be created under src/pages.
+Links to these pages are provided in index.js file
+Use Gatsby’s’Link’ function to link internal pages and HTML href for linking external pages&lt;/p&gt;
+&lt;p&gt;Blogs can be written inside te blog folder as mark down files and Gatsby just publises them.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Upgrade nodejs from V8 to V12]]></title><description><![CDATA[In Windows OS Current version
 v8.16.0 To upgrade to node 12:
 Visit https://nodejs.org/en/ And download the installer for windows (LTS) and…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/upgrade-node-js/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/upgrade-node-js/</guid><pubDate>Fri, 17 Jan 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;In Windows OS&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Current version
