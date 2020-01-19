@@ -54,11 +54,12 @@ const Bio = () => {
         }}
       />
       <p>
-        This blog is more like a self reference and is owned and maintained by <strong>{author}</strong>
+        This blog is more like a self reference now...
         {` `}
         <a href={`https://www.linkedin.com/in/${social.LinkedIn}`}>
+        <p>You can find me on&nbsp;<a href="http://www.linkedin.com/in/deepa-ann-john-bb801924">LinkedIn</a></p>
         </a>
-      </p>
+      </p>	
     </div>
   )
 }
