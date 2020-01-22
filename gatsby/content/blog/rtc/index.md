@@ -11,13 +11,15 @@ How do you pull some data out of RTC?
 
 IBM provides different mechanisms to do that. Lets examine all the possibile alternatives and different use cases.
 
-OSLC REST API
-Reportable Rest API
-Source Control Management Command Line
-Plain Java API
+* OSLC REST API
+* Reportable Rest API
+* Source Control Management Command Line
+* Plain Java API
 
-The technology stack we are cosiderning here is non Java or ro be precise node.js
-For a Java environment, plain java PAI 
+The technology stack we are cosiderning here is non Java or to be precise node.js
+For a Java environment, plain java API might be the best choice (but we are not discussing it here)
+
+**OSLC REST API**
 
 
 
