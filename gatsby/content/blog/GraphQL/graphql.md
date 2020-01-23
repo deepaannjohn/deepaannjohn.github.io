@@ -1,5 +1,5 @@
 ---
-title: Getting started with GraphQ
+title: Getting started with GraphQL
 date: "2020-01-20T22:12:03.284Z"
 description: "Some basic inforamtion to get started with GraphQL"
 ---
