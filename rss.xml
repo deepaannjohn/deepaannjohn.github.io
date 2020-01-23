@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 22 Jan 2020 12:36:59 GMT</lastBuildDate><item><title><![CDATA[Getting started with GraphQ]]></title><description><![CDATA[What is GraphQL?
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 23 Jan 2020 05:33:52 GMT</lastBuildDate><item><title><![CDATA[Logging in nodejs]]></title><description><![CDATA[One of the main package used for logging in nodejs apps is log4js. log4js Out of the box it supports the following features: coloured…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/nodejs-logging/logging-in-nodejs/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/nodejs-logging/logging-in-nodejs/</guid><pubDate>Wed, 22 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;One of the main package used for logging in nodejs apps is &lt;a href=&quot;https://www.npmjs.com/package/log4js&quot;&gt;log4js&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;log4js&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Out of the box it supports the following features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;coloured console logging to stdout or stderr&lt;/li&gt;
+&lt;li&gt;file appender, with configurable log rolling based on file size or date&lt;/li&gt;
+&lt;li&gt;a logger for connect/express servers&lt;/li&gt;
+&lt;li&gt;configurable log message layout/patterns&lt;/li&gt;
+&lt;li&gt;different log levels for different log categories (make some parts of your app log as DEBUG, others only ERRORS, etc.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;
+Minimalist version
+var log4js = require(‘log4js’);
+var logger = log4js.getLogger();
+logger.level = ‘debug’; // default level is OFF - which means no logs at all.
+logger.debug(“Some debug messages”);&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://log4js-node.github.io/log4js-node/api.html&quot;&gt;Setting level, category, appenders&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL?
 A layer between the front end client and backend data base.
 If there are multuple data servers (eg: mongo, db2, sql), the…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;
 A layer between the front end client and backend data base.
