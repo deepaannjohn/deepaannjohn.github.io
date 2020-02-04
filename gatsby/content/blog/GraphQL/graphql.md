@@ -15,23 +15,35 @@ return only necessary data, no overfetching)
 eg: query from the client requesting for particular fields:
 
 `{
+
     employee(id: 42) {
+
         firstName
+
         lastName
+
         email
+
     }
+
 }`
 
 sample resposne (a JSON object)
 
 `{
     "employee": {
+
         "firstName": "Joe",
+
         "lastName: "Mathew",
+
         "email":"jmp@gmail.com"
+
     }
+
 }
 `
+
 As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.
 
 GraphQL has to parts to it:
@@ -39,15 +51,21 @@ GraphQL has to parts to it:
 * Its a query language
 * It a run time as well
 
-Query language - Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)
+Query language 
 
-Run time - This is about validation of the queries, the type system, Introspection and Execution
+Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)
+
+Run time 
+
+This is about validation of the queries, the type system, Introspection and Execution
 
 Clients can perform query / mutation operation using a medium like HTTP.
 
-A **GraphQL document** can containe one more more operations.
+A **GraphQL document** can contain one more more operations.
 
-GraphQL run time - Reads and translates GraphQL docuemntats to other data services and vice versa while handling the response.
+GraphQL run time
+
+Reads and translates GraphQL documents to other data services and vice versa while handling the response.
 Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. 
 
 **GraphQL schema**
