@@ -5,18 +5,22 @@ description: "Some basic inforamtion to get started with GraphQL"
 ---
 
 **What is GraphQL?**
+
 A layer between the front end client and backend data base.
 If there are multiple data servers (eg: mongo, db2, sql), the client has to talk only to GraphQL
 GraphQL clients are in control of the data they need. They will request fr the data that they need (APIs return all the data where as graphQL
 return only necessary data, no overfetching)
+
 eg: query from the client requesting for particular fields:
+
 {
-    emplyee(id: 42) {
+    employee(id: 42) {
         firstName
         lastName
         email
     }
 }
+
 sample resposne (a JSON object)
 {
     "employee": {
@@ -25,13 +29,16 @@ sample resposne (a JSON object)
         "email":"jmp@gmail.com"
     }
 }
+
 As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.
 
 GraphQL has to parts to it:
+
 * Its a query language
 * It a run time as well
 
 Query language - Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)
+
 Run time - This is about validation of the queries, the type system, Introspection and Execution
 
 Clients can perform query / mutation operation using a medium like HTTP.
@@ -45,12 +52,12 @@ Also, GraphQL run time defines a graph based schema to declare teh GraphQL API s
 Every field we define in a schema has a type. (scalar or non scalar)
 Every field has a resolver function to read the logic.
 
-Client sends a GraphQL request
-The GraphQL server read the input from an interface
-Find the resolver function for each fields
-The response might be a field having another resolver function
-If so, process that resolver as well
-Consolidate the resposne and send to client
+* Client sends a GraphQL request
+* The GraphQL server read the input from an interface
+* Find the resolver function for each fields
+* The response might be a field having another resolver function
+* If so, process that resolver as well
+* Consolidate the resposne and send to client
 
 GraphQL query language is very similar to JSON.
 
@@ -61,6 +68,7 @@ There are many projects under GraphQLHub.com. Any of the projects under this
 if clicked will open in an (in browser) editor called GraphiQL (an editor from facebook).
 
 **GraphQL Language syntax**
+
 _query operation_
 example:
 query QueryName {
@@ -82,8 +90,11 @@ tip: use ctrl+space to get prompts inside GraphiQL editor
 type String! => this field is mandatory
 
 **GraphQL Query language**
+
 **Fields**
+
 Scalar fields
+
 They are simple fields (primitive / basic)
 examples:
 GraphQLInt
@@ -93,7 +104,9 @@ GraphQLBoolean
 GraphQLID - special type of id  which appears in all GraphQL responses
 
 Complex fields
+
 They usually have a custom type (eg: GutHubUser having name, companyname etc)
+
 Another example:
 GraphQLList
 
@@ -106,8 +119,11 @@ In the above github query example, th use field accepted username and used
 resolver function to determine the value to  be returned.
 
 Variables
+
 usage: to make query reusable
+
 example:
+
 query ($reponame: String!){
   github {
     repo (name : $reponame, ownerUsername: "facebook")  {
@@ -120,12 +136,15 @@ query ($reponame: String!){
 }
 
 Directives
+
 Directives are used to alter the graphQL run time and they are used along with variables to achieve this.
 examples of Built in directives are
+
 a. @skip
 b. @include
 
 Directive also support arguments, just like fields.
+
 eg: @skip, @include accepts a variable if (which is a boolean)
 
 Directives can be used with fields and fragments
@@ -143,7 +162,9 @@ query test($includerepos: Boolean!) {
 }
 
 Aliases
+
 eg:
+
 A UI componenet is expecting user.githubid as 'id' where as the JSON response object from 
 GraphQL has 'id' in the response.
 
@@ -205,7 +226,9 @@ reponse:
 
 
 Fragments
+
 Fragments make GraphQL composable
+
 usage: to eliminate repeatition
 eg:
 query test {
@@ -227,10 +250,12 @@ fragment UserInfoFragment on GithubUser {
 ... => spread operator
 
 Mutations
+
 Writing into GraphQL
 
 
 eg:
+
 mutation m1($inputval: SetValueForKeyInput!) {
   keyValue_setValue(input: $inputval) {
     item {
@@ -252,6 +277,7 @@ mutation m1($inputval: SetValueForKeyInput!) {
 }
 
 **GraphQL Runtime**
+
 What we saw above was how to access GraphQL APIs.
 Now the next part is to build the GraphQL APIs / server.
 
@@ -269,14 +295,17 @@ expected response:
 }
 
 We need to define the schema first.
+
 To do that we can use npm graphql pacakge.
 
 graphql npm package provides two important capabilities: building a type schema, and serving queries against that type schema.
 
 graphql-helloworld (without http server) is avaialble here:
+
 https://github.com/deepaannjohn/graphql-helloworld
 
 graphql-http-endpoint (with http server endpoint) is available here:
+
 https://github.com/deepaannjohn/graphql-http-endpoint
 
 
