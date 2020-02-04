@@ -7,29 +7,31 @@ description: "Some basic inforamtion to get started with GraphQL"
 **What is GraphQL?**
 
 A layer between the front end client and backend data base.
-If there are multiple data servers (eg: mongo, db2, sql), the client has to talk only to GraphQL
-GraphQL clients are in control of the data they need. They will request fr the data that they need (APIs return all the data where as graphQL
+If there are multiple data servers (eg: mongo, db2, sql), the client has to talk only to GraphQL.
+
+GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
 return only necessary data, no overfetching)
 
 eg: query from the client requesting for particular fields:
 
-{
+`{
     employee(id: 42) {
         firstName
         lastName
         email
     }
-}
+}`
 
 sample resposne (a JSON object)
-{
+
+`{
     "employee": {
         "firstName": "Joe",
         "lastName: "Mathew",
         "email":"jmp@gmail.com"
     }
 }
-
+`
 As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.
 
 GraphQL has to parts to it:
