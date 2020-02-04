@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Feb 2020 12:13:15 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Feb 2020 12:27:12 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
 Business / Product Owner (specification / requirements) -> BA (Jira story)-> Developers (code) -> QA (test…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/cucumber/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/cucumber/</guid><pubDate>Wed, 29 Apr 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;What is BDD? Why do we do BDD?
 Business / Product Owner (specification / requirements) -&gt; BA (Jira story)-&gt; Developers (code) -&gt; QA (test results)
 In this process, the requirements can totally get misinterpreted.&lt;/p&gt;
@@ -91,26 +91,26 @@ But a webiste int eh forma of an app.&lt;/p&gt;
 Install both Flutter and VS Code on your machine&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL? A layer between the front end client and backend data base.
 If there are multiple data servers (eg: mongo, db2, sql), the…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;A layer between the front end client and backend data base.
-If there are multiple data servers (eg: mongo, db2, sql), the client has to talk only to GraphQL
-GraphQL clients are in control of the data they need. They will request fr the data that they need (APIs return all the data where as graphQL
+If there are multiple data servers (eg: mongo, db2, sql), the client has to talk only to GraphQL.&lt;/p&gt;
+&lt;p&gt;GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
 return only necessary data, no overfetching)&lt;/p&gt;
 &lt;p&gt;eg: query from the client requesting for particular fields:&lt;/p&gt;
-&lt;p&gt;{
-employee(id: 42) {
-firstName
-lastName
-email
-}
-}&lt;/p&gt;
-&lt;p&gt;sample resposne (a JSON object)
-{
-“employee”: {
-“firstName”: “Joe”,
-“lastName: “Mathew”,
-“email”:“jmp@gmail.com”
-}
-}&lt;/p&gt;
-&lt;p&gt;As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;{
+    employee(id: 42) {
+        firstName
+        lastName
+        email
+    }
+}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;sample resposne (a JSON object)&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;{
+    &amp;quot;employee&amp;quot;: {
+        &amp;quot;firstName&amp;quot;: &amp;quot;Joe&amp;quot;,
+        &amp;quot;lastName: &amp;quot;Mathew&amp;quot;,
+        &amp;quot;email&amp;quot;:&amp;quot;jmp@gmail.com&amp;quot;
+    }
+}&lt;/code&gt;
+As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.&lt;/p&gt;
 &lt;p&gt;GraphQL has to parts to it:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Its a query language&lt;/li&gt;
