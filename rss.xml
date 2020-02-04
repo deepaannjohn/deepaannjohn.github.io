@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Feb 2020 12:27:12 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
-Business / Product Owner (specification / requirements) -> BA (Jira story)-> Developers (code) -> QA (test…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/cucumber/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/cucumber/</guid><pubDate>Wed, 29 Apr 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;What is BDD? Why do we do BDD?
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Feb 2020 14:22:42 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
+Business / Product Owner (specification / requirements) -> BA (Jira story)-> Developers (code) -> QA (test…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/cucumber/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/cucumber/</guid><pubDate>Tue, 04 Feb 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;What is BDD? Why do we do BDD?
 Business / Product Owner (specification / requirements) -&gt; BA (Jira story)-&gt; Developers (code) -&gt; QA (test results)
 In this process, the requirements can totally get misinterpreted.&lt;/p&gt;
 &lt;p&gt;BDD gives concrete exmaples rather than abstract specifications.&lt;br&gt;
@@ -95,32 +95,43 @@ If there are multiple data servers (eg: mongo, db2, sql), the client has to talk
 &lt;p&gt;GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
 return only necessary data, no overfetching)&lt;/p&gt;
 &lt;p&gt;eg: query from the client requesting for particular fields:&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;{
-    employee(id: 42) {
-        firstName
-        lastName
-        email
-    }
-}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;`{&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;employee(id: 42) {
+
+    firstName
+
+    lastName
+
+    email
+
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;}`&lt;/p&gt;
 &lt;p&gt;sample resposne (a JSON object)&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;{
-    &amp;quot;employee&amp;quot;: {
-        &amp;quot;firstName&amp;quot;: &amp;quot;Joe&amp;quot;,
-        &amp;quot;lastName: &amp;quot;Mathew&amp;quot;,
-        &amp;quot;email&amp;quot;:&amp;quot;jmp@gmail.com&amp;quot;
-    }
-}&lt;/code&gt;
-As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.&lt;/p&gt;
+&lt;p&gt;`{
+“employee”: {&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    &amp;quot;firstName&amp;quot;: &amp;quot;Joe&amp;quot;,
+
+    &amp;quot;lastName: &amp;quot;Mathew&amp;quot;,
+
+    &amp;quot;email&amp;quot;:&amp;quot;jmp@gmail.com&amp;quot;
+
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;}
+`&lt;/p&gt;
+&lt;p&gt;As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.&lt;/p&gt;
 &lt;p&gt;GraphQL has to parts to it:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Its a query language&lt;/li&gt;
 &lt;li&gt;It a run time as well&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Query language - Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)&lt;/p&gt;
-&lt;p&gt;Run time - This is about validation of the queries, the type system, Introspection and Execution&lt;/p&gt;
+&lt;p&gt;Query language &lt;/p&gt;
+&lt;p&gt;Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)&lt;/p&gt;
+&lt;p&gt;Run time &lt;/p&gt;
+&lt;p&gt;This is about validation of the queries, the type system, Introspection and Execution&lt;/p&gt;
 &lt;p&gt;Clients can perform query / mutation operation using a medium like HTTP.&lt;/p&gt;
-&lt;p&gt;A &lt;strong&gt;GraphQL document&lt;/strong&gt; can containe one more more operations.&lt;/p&gt;
-&lt;p&gt;GraphQL run time - Reads and translates GraphQL docuemntats to other data services and vice versa while handling the response.
+&lt;p&gt;A &lt;strong&gt;GraphQL document&lt;/strong&gt; can contain one more more operations.&lt;/p&gt;
+&lt;p&gt;GraphQL run time&lt;/p&gt;
+&lt;p&gt;Reads and translates GraphQL documents to other data services and vice versa while handling the response.
 Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;GraphQL schema&lt;/strong&gt;
 Every field we define in a schema has a type. (scalar or non scalar)

@@ -4,32 +4,43 @@ If there are multiple data servers (eg: mongo, db2, sql), the client has to talk
 <p>GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
 return only necessary data, no overfetching)</p>
 <p>eg: query from the client requesting for particular fields:</p>
-<p><code class="language-text">{
-    employee(id: 42) {
-        firstName
-        lastName
-        email
-    }
-}</code></p>
+<p>`{</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">employee(id: 42) {
+
+    firstName
+
+    lastName
+
+    email
+
+}</code></pre></div>
+<p>}`</p>
 <p>sample resposne (a JSON object)</p>
-<p><code class="language-text">{
-    &quot;employee&quot;: {
-        &quot;firstName&quot;: &quot;Joe&quot;,
-        &quot;lastName: &quot;Mathew&quot;,
-        &quot;email&quot;:&quot;jmp@gmail.com&quot;
-    }
-}</code>
-As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.</p>
+<p>`{
+“employee”: {</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">    &quot;firstName&quot;: &quot;Joe&quot;,
+
+    &quot;lastName: &quot;Mathew&quot;,
+
+    &quot;email&quot;:&quot;jmp@gmail.com&quot;
+
+}</code></pre></div>
+<p>}
+`</p>
+<p>As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.</p>
 <p>GraphQL has to parts to it:</p>
 <ul>
 <li>Its a query language</li>
 <li>It a run time as well</li>
 </ul>
-<p>Query language - Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)</p>
-<p>Run time - This is about validation of the queries, the type system, Introspection and Execution</p>
+<p>Query language </p>
+<p>Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)</p>
+<p>Run time </p>
+<p>This is about validation of the queries, the type system, Introspection and Execution</p>
 <p>Clients can perform query / mutation operation using a medium like HTTP.</p>
-<p>A <strong>GraphQL document</strong> can containe one more more operations.</p>
-<p>GraphQL run time - Reads and translates GraphQL docuemntats to other data services and vice versa while handling the response.
+<p>A <strong>GraphQL document</strong> can contain one more more operations.</p>
+<p>GraphQL run time</p>
+<p>Reads and translates GraphQL documents to other data services and vice versa while handling the response.
 Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. </p>
 <p><strong>GraphQL schema</strong>
 Every field we define in a schema has a type. (scalar or non scalar)
