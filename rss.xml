@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Feb 2020 12:09:58 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Feb 2020 12:13:15 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
 Business / Product Owner (specification / requirements) -> BA (Jira story)-> Developers (code) -> QA (test…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/cucumber/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/cucumber/</guid><pubDate>Wed, 29 Apr 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;What is BDD? Why do we do BDD?
 Business / Product Owner (specification / requirements) -&gt; BA (Jira story)-&gt; Developers (code) -&gt; QA (test results)
 In this process, the requirements can totally get misinterpreted.&lt;/p&gt;
@@ -88,37 +88,36 @@ But a webiste int eh forma of an app.&lt;/p&gt;
 &lt;li&gt;Language used is Dart (developed by Google) - Object Oriented&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;VS Code can be used for developed
-Install both Flutter and VS Code on your machine&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL?
-A layer between the front end client and backend data base.
-If there are multiple data servers (eg: mongo, db2, sql), the…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;
-A layer between the front end client and backend data base.
+Install both Flutter and VS Code on your machine&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL? A layer between the front end client and backend data base.
+If there are multiple data servers (eg: mongo, db2, sql), the…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A layer between the front end client and backend data base.
 If there are multiple data servers (eg: mongo, db2, sql), the client has to talk only to GraphQL
 GraphQL clients are in control of the data they need. They will request fr the data that they need (APIs return all the data where as graphQL
-return only necessary data, no overfetching)
-eg: query from the client requesting for particular fields:
-{
-emplyee(id: 42) {
+return only necessary data, no overfetching)&lt;/p&gt;
+&lt;p&gt;eg: query from the client requesting for particular fields:&lt;/p&gt;
+&lt;p&gt;{
+employee(id: 42) {
 firstName
 lastName
 email
 }
-}
-sample resposne (a JSON object)
+}&lt;/p&gt;
+&lt;p&gt;sample resposne (a JSON object)
 {
 “employee”: {
 “firstName”: “Joe”,
 “lastName: “Mathew”,
 “email”:“jmp@gmail.com”
 }
-}
-As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.&lt;/p&gt;
+}&lt;/p&gt;
+&lt;p&gt;As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.&lt;/p&gt;
 &lt;p&gt;GraphQL has to parts to it:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Its a query language&lt;/li&gt;
 &lt;li&gt;It a run time as well&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Query language - Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)
-Run time - This is about validation of the queries, the type system, Introspection and Execution&lt;/p&gt;
+&lt;p&gt;Query language - Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)&lt;/p&gt;
+&lt;p&gt;Run time - This is about validation of the queries, the type system, Introspection and Execution&lt;/p&gt;
 &lt;p&gt;Clients can perform query / mutation operation using a medium like HTTP.&lt;/p&gt;
 &lt;p&gt;A &lt;strong&gt;GraphQL document&lt;/strong&gt; can containe one more more operations.&lt;/p&gt;
 &lt;p&gt;GraphQL run time - Reads and translates GraphQL docuemntats to other data services and vice versa while handling the response.
@@ -126,19 +125,21 @@ Also, GraphQL run time defines a graph based schema to declare teh GraphQL API s
 &lt;p&gt;&lt;strong&gt;GraphQL schema&lt;/strong&gt;
 Every field we define in a schema has a type. (scalar or non scalar)
 Every field has a resolver function to read the logic.&lt;/p&gt;
-&lt;p&gt;Client sends a GraphQL request
-The GraphQL server read the input from an interface
-Find the resolver function for each fields
-The response might be a field having another resolver function
-If so, process that resolver as well
-Consolidate the resposne and send to client&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Client sends a GraphQL request&lt;/li&gt;
+&lt;li&gt;The GraphQL server read the input from an interface&lt;/li&gt;
+&lt;li&gt;Find the resolver function for each fields&lt;/li&gt;
+&lt;li&gt;The response might be a field having another resolver function&lt;/li&gt;
+&lt;li&gt;If so, process that resolver as well&lt;/li&gt;
+&lt;li&gt;Consolidate the resposne and send to client&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;GraphQL query language is very similar to JSON.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;GraphQL Editor&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;There are many GraphQL demo sites available eg: GraphQLHub.com
 There are many projects under GraphQLHub.com. Any of the projects under this
 if clicked will open in an (in browser) editor called GraphiQL (an editor from facebook).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;GraphQL Language syntax&lt;/strong&gt;
-&lt;em&gt;query operation&lt;/em&gt;
+&lt;p&gt;&lt;strong&gt;GraphQL Language syntax&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;query operation&lt;/em&gt;
 example:
 query QueryName {
 graphQLHub
@@ -156,29 +157,29 @@ name
 }&lt;/p&gt;
 &lt;p&gt;tip: use ctrl+space to get prompts inside GraphiQL editor
 type String! =&gt; this field is mandatory&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;GraphQL Query language&lt;/strong&gt;
-&lt;strong&gt;Fields&lt;/strong&gt;
-Scalar fields
-They are simple fields (primitive / basic)
+&lt;p&gt;&lt;strong&gt;GraphQL Query language&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fields&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Scalar fields&lt;/p&gt;
+&lt;p&gt;They are simple fields (primitive / basic)
 examples:
 GraphQLInt
 GraphQLFloat
 GraphQLString
 GraphQLBoolean
 GraphQLID - special type of id  which appears in all GraphQL responses&lt;/p&gt;
-&lt;p&gt;Complex fields
-They usually have a custom type (eg: GutHubUser having name, companyname etc)
-Another example:
+&lt;p&gt;Complex fields&lt;/p&gt;
+&lt;p&gt;They usually have a custom type (eg: GutHubUser having name, companyname etc)&lt;/p&gt;
+&lt;p&gt;Another example:
 GraphQLList&lt;/p&gt;
 &lt;p&gt;GraphQL fields are modelled after functions. They accept argumets and return something in response.
 On the server, we write JS functions to determine the value returned by every field.
 These functions are called resolver functions.&lt;/p&gt;
 &lt;p&gt;In the above github query example, th use field accepted username and used
 resolver function to determine the value to  be returned.&lt;/p&gt;
-&lt;p&gt;Variables
-usage: to make query reusable
-example:
-query ($reponame: String!){
+&lt;p&gt;Variables&lt;/p&gt;
+&lt;p&gt;usage: to make query reusable&lt;/p&gt;
+&lt;p&gt;example:&lt;/p&gt;
+&lt;p&gt;query ($reponame: String!){
 github {
 repo (name : $reponame, ownerUsername: “facebook”)  {
 commits {
@@ -188,13 +189,13 @@ date
 }
 }
 }&lt;/p&gt;
-&lt;p&gt;Directives
-Directives are used to alter the graphQL run time and they are used along with variables to achieve this.
-examples of Built in directives are
-a. @skip
+&lt;p&gt;Directives&lt;/p&gt;
+&lt;p&gt;Directives are used to alter the graphQL run time and they are used along with variables to achieve this.
+examples of Built in directives are&lt;/p&gt;
+&lt;p&gt;a. @skip
 b. @include&lt;/p&gt;
-&lt;p&gt;Directive also support arguments, just like fields.
-eg: @skip, @include accepts a variable if (which is a boolean)&lt;/p&gt;
+&lt;p&gt;Directive also support arguments, just like fields.&lt;/p&gt;
+&lt;p&gt;eg: @skip, @include accepts a variable if (which is a boolean)&lt;/p&gt;
 &lt;p&gt;Directives can be used with fields and fragments&lt;/p&gt;
 &lt;p&gt;eg:
 query test($includerepos: Boolean!) {
@@ -207,9 +208,9 @@ name
 }
 }
 }&lt;/p&gt;
-&lt;p&gt;Aliases
-eg:
-A UI componenet is expecting user.githubid as ‘id’ where as the JSON response object from
+&lt;p&gt;Aliases&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;p&gt;A UI componenet is expecting user.githubid as ‘id’ where as the JSON response object from
 GraphQL has ‘id’ in the response.&lt;/p&gt;
 &lt;p&gt;We can rename as below:
 request:
@@ -263,9 +264,9 @@ id
 }
 }
 }&lt;/p&gt;
-&lt;p&gt;Fragments
-Fragments make GraphQL composable
-usage: to eliminate repeatition
+&lt;p&gt;Fragments&lt;/p&gt;
+&lt;p&gt;Fragments make GraphQL composable&lt;/p&gt;
+&lt;p&gt;usage: to eliminate repeatition
 eg:
 query test {
 github {
@@ -282,10 +283,10 @@ login,
 id
 }&lt;/p&gt;
 &lt;p&gt;… =&gt; spread operator&lt;/p&gt;
-&lt;p&gt;Mutations
-Writing into GraphQL&lt;/p&gt;
-&lt;p&gt;eg:
-mutation m1($inputval: SetValueForKeyInput!) {
+&lt;p&gt;Mutations&lt;/p&gt;
+&lt;p&gt;Writing into GraphQL&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;p&gt;mutation m1($inputval: SetValueForKeyInput!) {
 keyValue_setValue(input: $inputval) {
 item {
 id
@@ -301,8 +302,8 @@ clientMutationId
 “clientMutationId”: “3”&lt;/p&gt;
 &lt;p&gt;  }
 }&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;GraphQL Runtime&lt;/strong&gt;
-What we saw above was how to access GraphQL APIs.
+&lt;p&gt;&lt;strong&gt;GraphQL Runtime&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;What we saw above was how to access GraphQL APIs.
 Now the next part is to build the GraphQL APIs / server.&lt;/p&gt;
 &lt;p&gt;eg:
 a hello-world graphql application:
@@ -316,13 +317,13 @@ expected response:
 “hello”:“world”
 }
 }&lt;/p&gt;
-&lt;p&gt;We need to define the schema first.
-To do that we can use npm graphql pacakge.&lt;/p&gt;
+&lt;p&gt;We need to define the schema first.&lt;/p&gt;
+&lt;p&gt;To do that we can use npm graphql pacakge.&lt;/p&gt;
 &lt;p&gt;graphql npm package provides two important capabilities: building a type schema, and serving queries against that type schema.&lt;/p&gt;
-&lt;p&gt;graphql-helloworld (without http server) is avaialble here:
-&lt;a href=&quot;https://github.com/deepaannjohn/graphql-helloworld&quot;&gt;https://github.com/deepaannjohn/graphql-helloworld&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;graphql-http-endpoint (with http server endpoint) is available here:
-&lt;a href=&quot;https://github.com/deepaannjohn/graphql-http-endpoint&quot;&gt;https://github.com/deepaannjohn/graphql-http-endpoint&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GatsbyJS]]></title><description><![CDATA[GatsbyJS is a front end framework to build static websites and 
+&lt;p&gt;graphql-helloworld (without http server) is avaialble here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/deepaannjohn/graphql-helloworld&quot;&gt;https://github.com/deepaannjohn/graphql-helloworld&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;graphql-http-endpoint (with http server endpoint) is available here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/deepaannjohn/graphql-http-endpoint&quot;&gt;https://github.com/deepaannjohn/graphql-http-endpoint&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GatsbyJS]]></title><description><![CDATA[GatsbyJS is a front end framework to build static websites and 
 is based on JAMStack architecture. JAMStack architecture GatsbyJS is built…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/gatsby/gatsby/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/gatsby/gatsby/</guid><pubDate>Sun, 19 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;GatsbyJS is a front end framework to build static websites and
 is based on JAMStack architecture.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://jamstack.org/&quot;&gt;JAMStack architecture&lt;/a&gt;&lt;/p&gt;
