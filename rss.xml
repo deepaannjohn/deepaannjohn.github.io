@@ -1,27 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 23 Jan 2020 05:33:52 GMT</lastBuildDate><item><title><![CDATA[Logging in nodejs]]></title><description><![CDATA[One of the main package used for logging in nodejs apps is log4js. log4js Out of the box it supports the following features: coloured…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/nodejs-logging/logging-in-nodejs/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/nodejs-logging/logging-in-nodejs/</guid><pubDate>Wed, 22 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;One of the main package used for logging in nodejs apps is &lt;a href=&quot;https://www.npmjs.com/package/log4js&quot;&gt;log4js&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;log4js&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Out of the box it supports the following features:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;coloured console logging to stdout or stderr&lt;/li&gt;
-&lt;li&gt;file appender, with configurable log rolling based on file size or date&lt;/li&gt;
-&lt;li&gt;a logger for connect/express servers&lt;/li&gt;
-&lt;li&gt;configurable log message layout/patterns&lt;/li&gt;
-&lt;li&gt;different log levels for different log categories (make some parts of your app log as DEBUG, others only ERRORS, etc.)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;
-Minimalist version
-var log4js = require(‘log4js’);
-var logger = log4js.getLogger();
-logger.level = ‘debug’; // default level is OFF - which means no logs at all.
-logger.debug(“Some debug messages”);&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://log4js-node.github.io/log4js-node/api.html&quot;&gt;Setting level, category, appenders&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL?
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Feb 2020 12:09:58 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
+Business / Product Owner (specification / requirements) -> BA (Jira story)-> Developers (code) -> QA (test…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/cucumber/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/cucumber/</guid><pubDate>Wed, 29 Apr 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;What is BDD? Why do we do BDD?
+Business / Product Owner (specification / requirements) -&gt; BA (Jira story)-&gt; Developers (code) -&gt; QA (test results)
+In this process, the requirements can totally get misinterpreted.&lt;/p&gt;
+&lt;p&gt;BDD gives concrete exmaples rather than abstract specifications.&lt;br&gt;
+A common language which all of the above personas can understand is used in BDD.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Discovery phase / Illustrate phase&lt;/em&gt;
+BDD specifies concrete examples of how a user would interact with the software / application.
+So its clear to everyone involved.
+Main tools would be white boards and Post-its.
+The output would be Acceptance criteria and Business rules.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Formulate Phase&lt;/em&gt;
+BA / tester would formulate these acceptance criteria / busines rules to a format of specifcations which
+both a business person can understand and something that an automated process can also execute as part of the test suite.
+This is where cucumber comes into play. We write these executable specifications in a special language called Gherkin (which
+uses the Given-When-Then notation)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Automate Phase&lt;/em&gt;
+We use these Gherkin specifications into automated acceptance tests&lt;/p&gt;
+&lt;p&gt;All these happens before development startes
+And to show case how the software works, we just have to exeucte the tests which is what the business can understand &lt;/p&gt;
+&lt;p&gt;BDD - a single source of truth, both specification and automated acceptance tests. Also these become the functional documentations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gherkin&lt;/strong&gt;
+Gherkin is the ‘Given-When-Then’ notation.
+A business readbale notation for executable specifications.
+As we can see from the example below, the language is ‘Business Readable’ and ‘Plain English’.
+And finally, this is an execuable piece of code as well!&lt;/p&gt;
+&lt;p&gt;example:
+Feature: Guess the word&lt;/p&gt;
+&lt;h1&gt;The first example has two steps&lt;/h1&gt;
+&lt;p&gt;  Scenario: Maker starts a game
+When the Maker starts a game
+Then the Maker waits for a Breaker to join&lt;/p&gt;
+&lt;h1&gt;The second example has three steps&lt;/h1&gt;
+&lt;p&gt;  Scenario: Breaker joins a game
+Given the Maker has started a game with the word “silky”
+When the Breaker joins the Maker’s game
+Then the Breaker must guess a word with 5 characters&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Structure of Gherkin Language:&lt;/strong&gt;
+We start with Feature
+Feature is ilustrated with a nuber of ‘Scenarios’
+Scenaris use ‘Given When Then’&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cucumber&lt;/strong&gt;
+Automation ibrary used to automate / run our executable specifications
+Scenario: Some cukes
+Given I have 48 cukes in my belly&lt;/p&gt;
+&lt;p&gt;package com.example;
+import io.cucumber.java.en.Given;&lt;/p&gt;
+&lt;p&gt;public class StepDefinitions {
+@Given(“I have {int} cukes in my belly”)
+public void i&lt;em&gt;have&lt;/em&gt;n&lt;em&gt;cukes&lt;/em&gt;in&lt;em&gt;my&lt;/em&gt;belly(int cukes) {
+System.out.format(“Cukes: %n\n”, cukes);
+}
+}&lt;/p&gt;
+&lt;p&gt;Set up a Cucumber Test case:
+&lt;em&gt;To be added&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[node.js - a few notes]]></title><description><![CDATA[Child Process in node.js
+(Excellent article by Samer Buna on child process)https://jscomplete.com/learn/node-beyond-basics/child-processes…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/node.js/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/node.js/</guid><pubDate>Wed, 29 Jan 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;Child Process in node.js&lt;/strong&gt;
+(Excellent article by Samer Buna on child process)[https://jscomplete.com/learn/node-beyond-basics/child-processes]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Unit testing node using chai, mocha, sinon&lt;/strong&gt;
+Mocha - most commom framework used for node.js testing
+This is simply a test runner.&lt;/p&gt;
+&lt;p&gt;Chai - Assertion library used along with mocha
+General usage:
+import ‘chai from ‘chai’
+const expect = chai.expect  // creat a short cut for expect
+import chaiAsPromised from ‘chai-as-promised’
+chai.use(chaiAsPromised)&lt;/p&gt;
+&lt;p&gt;Sinon - mocking library most commonly used in JS&lt;/p&gt;
+&lt;p&gt;Gulp, Grunt -  task runners&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with mobile app devlopment using Flutter]]></title><description><![CDATA[What is Flutter?
+A great tool to create mobile apps fast for Android and iOS from Google. Native - Android studio, Swift
+But need one for…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/flutter/flutter/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/flutter/flutter/</guid><pubDate>Thu, 23 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is Flutter?&lt;/strong&gt;
+A great tool to create mobile apps fast for Android and iOS from Google.&lt;/p&gt;
+&lt;p&gt;Native - Android studio, Swift
+But need one for each &lt;/p&gt;
+&lt;p&gt;Hybrid - Single code base
+Ionic, React Native, Cordova
+Xamarin
+Flutter&lt;/p&gt;
+&lt;p&gt;Web
+You access then from a browser. Can share the same code for any system.
+But a webiste int eh forma of an app.&lt;/p&gt;
+&lt;p&gt;Flutter - &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Hot relaod (Just in time recompilation)&lt;/li&gt;
+&lt;li&gt;Also Code is compliled to native code for fast experience (for production)&lt;/li&gt;
+&lt;li&gt;Single code base for Androis and iOS&lt;/li&gt;
+&lt;li&gt;May 2017 Google announced Flutter&lt;/li&gt;
+&lt;li&gt;December 2018, stable release was announced&lt;/li&gt;
+&lt;li&gt;Language used is Dart (developed by Google) - Object Oriented&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;VS Code can be used for developed
+Install both Flutter and VS Code on your machine&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL?
 A layer between the front end client and backend data base.
-If there are multuple data servers (eg: mongo, db2, sql), the…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;
+If there are multiple data servers (eg: mongo, db2, sql), the…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;
 A layer between the front end client and backend data base.
-If there are multuple data servers (eg: mongo, db2, sql), the client have to talk only to GraphQL
-GraphQL clients are in control of the data they need. The will request fr the data that they need (APIS return all the data where as graphQL
+If there are multiple data servers (eg: mongo, db2, sql), the client has to talk only to GraphQL
+GraphQL clients are in control of the data they need. They will request fr the data that they need (APIs return all the data where as graphQL
 return only necessary data, no overfetching)
-eg query from the client requesting for particular fields:
+eg: query from the client requesting for particular fields:
 {
 emplyee(id: 42) {
 firstName
@@ -43,19 +117,19 @@ As we can see, the answer matches the request query. Every field in the query, b
 &lt;li&gt;Its a query language&lt;/li&gt;
 &lt;li&gt;It a run time as well&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Query language - Its all about the communication or the query language. Query (read operation) and Murtation (Write operation)
-Run time - This is about validation of the querries, the type system, Introspection and Execution&lt;/p&gt;
+&lt;p&gt;Query language - Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)
+Run time - This is about validation of the queries, the type system, Introspection and Execution&lt;/p&gt;
 &lt;p&gt;Clients can perform query / mutation operation using a medium like HTTP.&lt;/p&gt;
 &lt;p&gt;A &lt;strong&gt;GraphQL document&lt;/strong&gt; can containe one more more operations.&lt;/p&gt;
 &lt;p&gt;GraphQL run time - Reads and translates GraphQL docuemntats to other data services and vice versa while handling the response.
-Also, GraphQL runt ime defines a graph based schema to declare teh GraphQL API service capabilties to all clients. &lt;/p&gt;
+Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;GraphQL schema&lt;/strong&gt;
 Every field we define in a schema has a type. (scalar or non scalar)
-Every field has a resolver function to ap the field to its read logic.&lt;/p&gt;
+Every field has a resolver function to read the logic.&lt;/p&gt;
 &lt;p&gt;Client sends a GraphQL request
-The GraphQL server read the input rom an interface
+The GraphQL server read the input from an interface
 Find the resolver function for each fields
-The response might be a field having another resolver fucntion
+The response might be a field having another resolver function
 If so, process that resolver as well
 Consolidate the resposne and send to client&lt;/p&gt;
 &lt;p&gt;GraphQL query language is very similar to JSON.&lt;/p&gt;
@@ -96,7 +170,7 @@ GraphQLID - special type of id  which appears in all GraphQL responses&lt;/p&gt;
 They usually have a custom type (eg: GutHubUser having name, companyname etc)
 Another example:
 GraphQLList&lt;/p&gt;
-&lt;p&gt;GraphQL fields are modelled afetr functions. They accept argumets and return something in response.
+&lt;p&gt;GraphQL fields are modelled after functions. They accept argumets and return something in response.
 On the server, we write JS functions to determine the value returned by every field.
 These functions are called resolver functions.&lt;/p&gt;
 &lt;p&gt;In the above github query example, th use field accepted username and used
@@ -114,10 +188,141 @@ date
 }
 }
 }&lt;/p&gt;
-&lt;p&gt;directives
-Aliases
-Fragments
-Mutations&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GatsbyJS]]></title><description><![CDATA[GatsbyJS is a front end framework to build static websites and 
+&lt;p&gt;Directives
+Directives are used to alter the graphQL run time and they are used along with variables to achieve this.
+examples of Built in directives are
+a. @skip
+b. @include&lt;/p&gt;
+&lt;p&gt;Directive also support arguments, just like fields.
+eg: @skip, @include accepts a variable if (which is a boolean)&lt;/p&gt;
+&lt;p&gt;Directives can be used with fields and fragments&lt;/p&gt;
+&lt;p&gt;eg:
+query test($includerepos: Boolean!) {
+github {
+user (username: “deepaannjohn”) {
+login,
+repos @include(if: $includerepos) {
+name
+}
+}
+}
+}&lt;/p&gt;
+&lt;p&gt;Aliases
+eg:
+A UI componenet is expecting user.githubid as ‘id’ where as the JSON response object from
+GraphQL has ‘id’ in the response.&lt;/p&gt;
+&lt;p&gt;We can rename as below:
+request:
+query test {
+github {
+user (username: “deepaannjohn”) {
+login,
+githubid : id
+}
+}
+}
+response:
+{
+“data”: {
+“github”: {
+“user”: {
+“login”: “deepaannjohn”,
+“githubid”: 1234
+}
+}
+}
+}&lt;/p&gt;
+&lt;p&gt;So UI component can use it as response.data.github.githubid.
+Again, this gives clients more control.&lt;/p&gt;
+&lt;p&gt;another use of alias:
+to retrieve the same field more than once
+query test {
+github {
+user1: user(username: “deepaannjohn”) {
+login
+githubid: id
+}
+user2: user(username: “mathewjpallan”) {
+login
+id
+}
+}
+}&lt;/p&gt;
+&lt;p&gt;reponse:
+{
+“data”: {
+“github”: {
+“user1”: {
+“login”: “deepaannjohn”,
+“githubid”: 1234
+},
+“user2”: {
+“login”: “mathewjpallan”,
+“id”: 5678
+}
+}
+}
+}&lt;/p&gt;
+&lt;p&gt;Fragments
+Fragments make GraphQL composable
+usage: to eliminate repeatition
+eg:
+query test {
+github {
+user1: user(username: “deepaannjohn”) {
+…UserInfoFragment
+}
+user2: user(username: “mathewjpallan”) {
+…UserInfoFragment
+}
+}
+}&lt;/p&gt;
+&lt;p&gt;fragment UserInfoFragment on GithubUser {
+login,
+id
+}&lt;/p&gt;
+&lt;p&gt;… =&gt; spread operator&lt;/p&gt;
+&lt;p&gt;Mutations
+Writing into GraphQL&lt;/p&gt;
+&lt;p&gt;eg:
+mutation m1($inputval: SetValueForKeyInput!) {
+keyValue_setValue(input: $inputval) {
+item {
+id
+value
+}
+clientMutationId
+}
+}&lt;/p&gt;
+&lt;p&gt;{
+“inputval”: {
+“id”: “1”,
+“value”: “3635”,
+“clientMutationId”: “3”&lt;/p&gt;
+&lt;p&gt;  }
+}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GraphQL Runtime&lt;/strong&gt;
+What we saw above was how to access GraphQL APIs.
+Now the next part is to build the GraphQL APIs / server.&lt;/p&gt;
+&lt;p&gt;eg:
+a hello-world graphql application:
+request:
+{
+hello
+}
+expected response:
+{
+“data”:{
+“hello”:“world”
+}
+}&lt;/p&gt;
+&lt;p&gt;We need to define the schema first.
+To do that we can use npm graphql pacakge.&lt;/p&gt;
+&lt;p&gt;graphql npm package provides two important capabilities: building a type schema, and serving queries against that type schema.&lt;/p&gt;
+&lt;p&gt;graphql-helloworld (without http server) is avaialble here:
+&lt;a href=&quot;https://github.com/deepaannjohn/graphql-helloworld&quot;&gt;https://github.com/deepaannjohn/graphql-helloworld&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;graphql-http-endpoint (with http server endpoint) is available here:
+&lt;a href=&quot;https://github.com/deepaannjohn/graphql-http-endpoint&quot;&gt;https://github.com/deepaannjohn/graphql-http-endpoint&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GatsbyJS]]></title><description><![CDATA[GatsbyJS is a front end framework to build static websites and 
 is based on JAMStack architecture. JAMStack architecture GatsbyJS is built…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/gatsby/gatsby/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/gatsby/gatsby/</guid><pubDate>Sun, 19 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;GatsbyJS is a front end framework to build static websites and
 is based on JAMStack architecture.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://jamstack.org/&quot;&gt;JAMStack architecture&lt;/a&gt;&lt;/p&gt;
