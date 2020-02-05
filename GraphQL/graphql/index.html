@@ -23,9 +23,9 @@ return only necessary data, no overfetching)</p>
 
     &quot;employee&quot;: {
 
-        &quot;firstName&quot;: &quot;A&quot;,
+        &quot;firstName&quot;: &quot;ABC&quot;,
 
-        &quot;lastName: &quot;Y&quot;,
+        &quot;lastName: &quot;XYZ&quot;,
 
         &quot;email&quot;:&quot;xyz@gmail.com&quot;
 
@@ -45,23 +45,6 @@ return only necessary data, no overfetching)</p>
 <p>There are many GraphQL demo sites available eg: GraphQLHub.com
 There are many projects under GraphQLHub.com. Any of the projects under this
 if clicked will open in an (in browser) editor called GraphiQL (an editor from facebook).</p>
-<p>Run time </p>
-<p>This is about validation of the queries, the type system, Introspection and Execution</p>
-<p>Clients can perform query / mutation operation using a medium like HTTP.</p>
-<p>GraphQL run time</p>
-<p>Reads and translates GraphQL documents to other data services and vice versa while handling the response.
-Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. </p>
-<p><strong>GraphQL schema</strong>
-Every field we define in a schema has a type. (scalar or non scalar)
-Every field has a resolver function to read the logic.</p>
-<ul>
-<li>Client sends a GraphQL request</li>
-<li>The GraphQL server read the input from an interface</li>
-<li>Find the resolver function for each fields</li>
-<li>The response might be a field having another resolver function</li>
-<li>If so, process that resolver as well</li>
-<li>Consolidate the resposne and send to client</li>
-</ul>
 <p><strong>GraphQL Language syntax</strong></p>
 <p><em>query operation</em>
 example:
@@ -81,6 +64,17 @@ name
 }</p>
 <p>tip: use ctrl+space to get prompts inside GraphiQL editor
 type String! => this field is mandatory</p>
+<p><strong>GraphQL schema</strong>
+Every field we define in a schema has a type. (scalar or non scalar)
+Every field has a resolver function to read the logic.</p>
+<ul>
+<li>Client sends a GraphQL request</li>
+<li>The GraphQL server read the input from an interface</li>
+<li>Find the resolver function for each fields</li>
+<li>The response might be a field having another resolver function</li>
+<li>If so, process that resolver as well</li>
+<li>Consolidate the resposne and send to client</li>
+</ul>
 <p><strong>GraphQL Query language</strong></p>
 <p><strong>Fields</strong></p>
 <p>Scalar fields</p>
@@ -227,6 +221,10 @@ clientMutationId
 <p>  }
 }</p>
 <p><strong>GraphQL Runtime</strong></p>
+<p>This is about validation of the queries, the type system, Introspection and Execution</p>
+<p>Clients can perform query / mutation operation using a medium like HTTP.</p>
+<p>Reads and translates GraphQL documents to other data services and vice versa while handling the response.
+Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. </p>
 <p>What we saw above was how to access GraphQL APIs.
 Now the next part is to build the GraphQL APIs / server.</p>
 <p>eg:

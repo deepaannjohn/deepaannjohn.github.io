@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 05 Feb 2020 04:29:43 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 05 Feb 2020 05:06:21 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
 Business / Product Owner (specification / requirements) -> BA (Jira story)-> Developers (code) -> QA (test…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/cucumber/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/cucumber/</guid><pubDate>Tue, 04 Feb 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;What is BDD? Why do we do BDD?
 Business / Product Owner (specification / requirements) -&gt; BA (Jira story)-&gt; Developers (code) -&gt; QA (test results)
 In this process, the requirements can totally get misinterpreted.&lt;/p&gt;
@@ -113,9 +113,9 @@ return only necessary data, no overfetching)&lt;/p&gt;
 
     &amp;quot;employee&amp;quot;: {
 
-        &amp;quot;firstName&amp;quot;: &amp;quot;A&amp;quot;,
+        &amp;quot;firstName&amp;quot;: &amp;quot;ABC&amp;quot;,
 
-        &amp;quot;lastName: &amp;quot;Y&amp;quot;,
+        &amp;quot;lastName: &amp;quot;XYZ&amp;quot;,
 
         &amp;quot;email&amp;quot;:&amp;quot;xyz@gmail.com&amp;quot;
 
@@ -135,23 +135,6 @@ return only necessary data, no overfetching)&lt;/p&gt;
 &lt;p&gt;There are many GraphQL demo sites available eg: GraphQLHub.com
 There are many projects under GraphQLHub.com. Any of the projects under this
 if clicked will open in an (in browser) editor called GraphiQL (an editor from facebook).&lt;/p&gt;
-&lt;p&gt;Run time &lt;/p&gt;
-&lt;p&gt;This is about validation of the queries, the type system, Introspection and Execution&lt;/p&gt;
-&lt;p&gt;Clients can perform query / mutation operation using a medium like HTTP.&lt;/p&gt;
-&lt;p&gt;GraphQL run time&lt;/p&gt;
-&lt;p&gt;Reads and translates GraphQL documents to other data services and vice versa while handling the response.
-Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;GraphQL schema&lt;/strong&gt;
-Every field we define in a schema has a type. (scalar or non scalar)
-Every field has a resolver function to read the logic.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Client sends a GraphQL request&lt;/li&gt;
-&lt;li&gt;The GraphQL server read the input from an interface&lt;/li&gt;
-&lt;li&gt;Find the resolver function for each fields&lt;/li&gt;
-&lt;li&gt;The response might be a field having another resolver function&lt;/li&gt;
-&lt;li&gt;If so, process that resolver as well&lt;/li&gt;
-&lt;li&gt;Consolidate the resposne and send to client&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;GraphQL Language syntax&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;query operation&lt;/em&gt;
 example:
@@ -171,6 +154,17 @@ name
 }&lt;/p&gt;
 &lt;p&gt;tip: use ctrl+space to get prompts inside GraphiQL editor
 type String! =&gt; this field is mandatory&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GraphQL schema&lt;/strong&gt;
+Every field we define in a schema has a type. (scalar or non scalar)
+Every field has a resolver function to read the logic.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Client sends a GraphQL request&lt;/li&gt;
+&lt;li&gt;The GraphQL server read the input from an interface&lt;/li&gt;
+&lt;li&gt;Find the resolver function for each fields&lt;/li&gt;
+&lt;li&gt;The response might be a field having another resolver function&lt;/li&gt;
+&lt;li&gt;If so, process that resolver as well&lt;/li&gt;
+&lt;li&gt;Consolidate the resposne and send to client&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;GraphQL Query language&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Fields&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Scalar fields&lt;/p&gt;
@@ -317,6 +311,10 @@ clientMutationId
 &lt;p&gt;  }
 }&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;GraphQL Runtime&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is about validation of the queries, the type system, Introspection and Execution&lt;/p&gt;
+&lt;p&gt;Clients can perform query / mutation operation using a medium like HTTP.&lt;/p&gt;
+&lt;p&gt;Reads and translates GraphQL documents to other data services and vice versa while handling the response.
+Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. &lt;/p&gt;
 &lt;p&gt;What we saw above was how to access GraphQL APIs.
 Now the next part is to build the GraphQL APIs / server.&lt;/p&gt;
 &lt;p&gt;eg:
