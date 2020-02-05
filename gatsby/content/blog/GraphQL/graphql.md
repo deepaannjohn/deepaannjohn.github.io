@@ -54,7 +54,7 @@ sample resposne (a JSON object)
 ```
 As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.
 
-GraphQL has to parts to it:
+GraphQL has two parts to it:
 
 * It's a query language
 * It has run time as well
@@ -62,6 +62,14 @@ GraphQL has to parts to it:
 Query language 
 
 It's all about the communication or the query language. Query (read operation) and Mutation (Write operation)
+
+GraphQL query language is very similar to JSON.
+
+**GraphQL Editor**
+
+There are many GraphQL demo sites available eg: GraphQLHub.com
+There are many projects under GraphQLHub.com. Any of the projects under this 
+if clicked will open in an (in browser) editor called GraphiQL (an editor from facebook).
 
 Run time 
 
@@ -85,13 +93,6 @@ Every field has a resolver function to read the logic.
 * If so, process that resolver as well
 * Consolidate the resposne and send to client
 
-GraphQL query language is very similar to JSON.
-
-**GraphQL Editor**
-
-There are many GraphQL demo sites available eg: GraphQLHub.com
-There are many projects under GraphQLHub.com. Any of the projects under this 
-if clicked will open in an (in browser) editor called GraphiQL (an editor from facebook).
 
 **GraphQL Language syntax**
 
