@@ -6,14 +6,14 @@ description: "Some basic inforamtion to get started with GraphQL"
 
 **What is GraphQL?**
 
-GraphQL is a query language that was first built and used inside Facebook in 2012. It was then open sourced and released as a specification in 2015.
+GraphQL is a query language / API standard  that was invented and open-sourced by Facebook.
 
 GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a server to a client. 
 
 It lets the client specify exactly what data it needs. GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
 return only necessary data, no overfetching)
 
-With GraphQL, the user is able to make a single call to fetch the required information rather than to construct several REST requests to fetch the same.
+GraphQL can be called as a more efficient alternative to REST. Increased mobile usage, low power devices and slow networks were the initial reasons why Facebook developed GraphQL. GraphQL minimies the amountof data that needs to be transferred over the network and thus improves the application operating under these conditions.
 
 eg: query from the client requesting for particular fields:
 
