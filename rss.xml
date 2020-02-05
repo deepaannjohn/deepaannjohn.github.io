@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Feb 2020 14:22:42 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 05 Feb 2020 04:21:44 GMT</lastBuildDate><item><title><![CDATA[BDD with Cucumber and Gherkin]]></title><description><![CDATA[What is BDD? Why do we do BDD?
 Business / Product Owner (specification / requirements) -> BA (Jira story)-> Developers (code) -> QA (test…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/cucumber/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/cucumber/</guid><pubDate>Tue, 04 Feb 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;What is BDD? Why do we do BDD?
 Business / Product Owner (specification / requirements) -&gt; BA (Jira story)-&gt; Developers (code) -&gt; QA (test results)
 In this process, the requirements can totally get misinterpreted.&lt;/p&gt;
@@ -88,48 +88,51 @@ But a webiste int eh forma of an app.&lt;/p&gt;
 &lt;li&gt;Language used is Dart (developed by Google) - Object Oriented&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;VS Code can be used for developed
-Install both Flutter and VS Code on your machine&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL? A layer between the front end client and backend data base.
-If there are multiple data servers (eg: mongo, db2, sql), the…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;A layer between the front end client and backend data base.
-If there are multiple data servers (eg: mongo, db2, sql), the client has to talk only to GraphQL.&lt;/p&gt;
-&lt;p&gt;GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
+Install both Flutter and VS Code on your machine&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL? GraphQL is a query language that was first built and used inside Facebook in 2012. It was then open sourced and released as…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;GraphQL is a query language that was first built and used inside Facebook in 2012. It was then open sourced and released as a specification in 2015.&lt;/p&gt;
+&lt;p&gt;GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a server to a client. &lt;/p&gt;
+&lt;p&gt;It lets the client specify exactly what data it needs. GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
 return only necessary data, no overfetching)&lt;/p&gt;
+&lt;p&gt;With GraphQL, the user is able to make a single call to fetch the required information rather than to construct several REST requests to fetch the same.&lt;/p&gt;
 &lt;p&gt;eg: query from the client requesting for particular fields:&lt;/p&gt;
-&lt;p&gt;`{&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;employee(id: 42) {
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
+  
+    employee(id: 42) {
 
-    firstName
+        firstName
 
-    lastName
+        lastName
 
-    email
+        email
+
+    }
 
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;}`&lt;/p&gt;
 &lt;p&gt;sample resposne (a JSON object)&lt;/p&gt;
-&lt;p&gt;`{
-“employee”: {&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    &amp;quot;firstName&amp;quot;: &amp;quot;Joe&amp;quot;,
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
 
-    &amp;quot;lastName: &amp;quot;Mathew&amp;quot;,
+    &amp;quot;employee&amp;quot;: {
 
-    &amp;quot;email&amp;quot;:&amp;quot;jmp@gmail.com&amp;quot;
+        &amp;quot;firstName&amp;quot;: &amp;quot;A&amp;quot;,
+
+        &amp;quot;lastName: &amp;quot;Y&amp;quot;,
+
+        &amp;quot;email&amp;quot;:&amp;quot;xyz@gmail.com&amp;quot;
+
+    }
 
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;}
-`&lt;/p&gt;
 &lt;p&gt;As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.&lt;/p&gt;
 &lt;p&gt;GraphQL has to parts to it:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Its a query language&lt;/li&gt;
-&lt;li&gt;It a run time as well&lt;/li&gt;
+&lt;li&gt;It’s a query language&lt;/li&gt;
+&lt;li&gt;It has run time as well&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Query language &lt;/p&gt;
-&lt;p&gt;Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)&lt;/p&gt;
+&lt;p&gt;It’s all about the communication or the query language. Query (read operation) and Mutation (Write operation)&lt;/p&gt;
 &lt;p&gt;Run time &lt;/p&gt;
 &lt;p&gt;This is about validation of the queries, the type system, Introspection and Execution&lt;/p&gt;
 &lt;p&gt;Clients can perform query / mutation operation using a medium like HTTP.&lt;/p&gt;
-&lt;p&gt;A &lt;strong&gt;GraphQL document&lt;/strong&gt; can contain one more more operations.&lt;/p&gt;
 &lt;p&gt;GraphQL run time&lt;/p&gt;
 &lt;p&gt;Reads and translates GraphQL documents to other data services and vice versa while handling the response.
 Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. &lt;/p&gt;
