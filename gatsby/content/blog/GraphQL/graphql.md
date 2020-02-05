@@ -6,16 +6,20 @@ description: "Some basic inforamtion to get started with GraphQL"
 
 **What is GraphQL?**
 
-A layer between the front end client and backend data base.
-If there are multiple data servers (eg: mongo, db2, sql), the client has to talk only to GraphQL.
+GraphQL is a query language that was first built and used inside Facebook in 2012. It was then open sourced and released as a specification in 2015.
 
-GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
+GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a server to a client. 
+
+It lets the client specify exactly what data it needs. GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
 return only necessary data, no overfetching)
+
+With GraphQL, the user is able to make a single call to fetch the required information rather than to construct several REST requests to fetch the same.
 
 eg: query from the client requesting for particular fields:
 
-`{
-
+```
+{
+  
     employee(id: 42) {
 
         firstName
@@ -26,42 +30,44 @@ eg: query from the client requesting for particular fields:
 
     }
 
-}`
+}
 
+```
 sample resposne (a JSON object)
 
-`{
+```
+{
+
     "employee": {
 
-        "firstName": "Joe",
+        "firstName": "A",
 
-        "lastName: "Mathew",
+        "lastName: "Y",
 
-        "email":"jmp@gmail.com"
+        "email":"xyz@gmail.com"
 
     }
 
 }
-`
 
+
+```
 As we can see, the answer matches the request query. Every field in the query, becomes a key in the answer object.
 
 GraphQL has to parts to it:
 
-* Its a query language
-* It a run time as well
+* It's a query language
+* It has run time as well
 
 Query language 
 
-Its all about the communication or the query language. Query (read operation) and Mutation (Write operation)
+It's all about the communication or the query language. Query (read operation) and Mutation (Write operation)
 
 Run time 
 
 This is about validation of the queries, the type system, Introspection and Execution
 
 Clients can perform query / mutation operation using a medium like HTTP.
-
-A **GraphQL document** can contain one more more operations.
 
 GraphQL run time
 
