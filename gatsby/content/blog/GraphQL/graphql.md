@@ -40,9 +40,9 @@ sample resposne (a JSON object)
 
     "employee": {
 
-        "firstName": "A",
+        "firstName": "ABC",
 
-        "lastName: "Y",
+        "lastName: "XYZ",
 
         "email":"xyz@gmail.com"
 
@@ -71,28 +71,6 @@ There are many GraphQL demo sites available eg: GraphQLHub.com
 There are many projects under GraphQLHub.com. Any of the projects under this 
 if clicked will open in an (in browser) editor called GraphiQL (an editor from facebook).
 
-Run time 
-
-This is about validation of the queries, the type system, Introspection and Execution
-
-Clients can perform query / mutation operation using a medium like HTTP.
-
-GraphQL run time
-
-Reads and translates GraphQL documents to other data services and vice versa while handling the response.
-Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. 
-
-**GraphQL schema**
-Every field we define in a schema has a type. (scalar or non scalar)
-Every field has a resolver function to read the logic.
-
-* Client sends a GraphQL request
-* The GraphQL server read the input from an interface
-* Find the resolver function for each fields
-* The response might be a field having another resolver function
-* If so, process that resolver as well
-* Consolidate the resposne and send to client
-
 
 **GraphQL Language syntax**
 
@@ -115,6 +93,18 @@ query QueryName {
 
 tip: use ctrl+space to get prompts inside GraphiQL editor
 type String! => this field is mandatory
+
+**GraphQL schema**
+Every field we define in a schema has a type. (scalar or non scalar)
+Every field has a resolver function to read the logic.
+
+* Client sends a GraphQL request
+* The GraphQL server read the input from an interface
+* Find the resolver function for each fields
+* The response might be a field having another resolver function
+* If so, process that resolver as well
+* Consolidate the resposne and send to client
+
 
 **GraphQL Query language**
 
@@ -304,6 +294,13 @@ mutation m1($inputval: SetValueForKeyInput!) {
 }
 
 **GraphQL Runtime**
+
+This is about validation of the queries, the type system, Introspection and Execution
+
+Clients can perform query / mutation operation using a medium like HTTP.
+
+Reads and translates GraphQL documents to other data services and vice versa while handling the response.
+Also, GraphQL run time defines a graph based schema to declare teh GraphQL API service capabilties to all clients. 
 
 What we saw above was how to access GraphQL APIs.
 Now the next part is to build the GraphQL APIs / server.
