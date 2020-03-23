@@ -1,6 +1,7 @@
 ---
 title: Jenkins 2 Fundamentals
-date: "2020-03-020T23:50:37.121Z"
+date: "2020-03-23T23:50:37.121Z"
+description: "Some basic inforamtion to get started with Jenkins 2"
 ---
 
 Why Jenkins?
