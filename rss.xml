@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 23 Mar 2020 09:15:31 GMT</lastBuildDate><item><title><![CDATA[Jenkins 2 Fundamentals]]></title><description><![CDATA[Why Jenkins? Automate the deployment Conitunous Integration (eg: build the PRs and validate) Continuos Deployment Cruise Control (200…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/jenkins/jenkins/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/jenkins/jenkins/</guid><pubDate>Mon, 23 Mar 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;Why Jenkins?&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 03 Apr 2020 10:23:23 GMT</lastBuildDate><item><title><![CDATA[Proxy]]></title><description><![CDATA[How to set up a forward proxy? nginx as forward proxy - did not work with authentication I tried to set up nginx as forward proxy on my…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/proxy/proxy/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/proxy/proxy/</guid><pubDate>Fri, 03 Apr 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;How to set up a forward proxy?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;nginx as forward proxy - did not work with authentication&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I tried to set up nginx as forward proxy on my Windows machine and it did not work. Well, it did work when the proxy was not configured for authentication. &lt;/p&gt;
+&lt;p&gt;This was how I set it up.&lt;/p&gt;
+&lt;p&gt;I used a docker image reiz/nginx_proxy as I read that nginx docker image does not work for https sites.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker run -d -p 8888:8888 -v /d:/misc/dockerfiles/nginx/conf/nginx_whitelist.conf:/usr/local/nginx/conf/nginx.conf reiz/nginx_proxy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This proxy works for both https and https sites.&lt;/p&gt;
+&lt;p&gt;Then I set up authentication for the proxy:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker run -d -p 8888:8888 -v /d:/misc/dockerfiles/nginx/conf/nginx_whitelist.conf:/usr/local/nginx/conf/nginx.conf -v /d:/misc/dockerfiles/xampp/apache/bin/.htpasswd:/var/passwd/nginx/.htpasswd reiz/nginx_proxy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;config file&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;user www-data;
+worker_processes auto;
+daemon off; # Don&amp;#39;t run Nginx as daemon, as we run it in Docker we need a foreground process.
+events { }
+
+
+http {
+    server_names_hash_bucket_size 128;
+
+    access_log /var/log/nginx_access.log;
+    error_log /var/log/nginx_errors.log;
+
+    # Whitelist All
+    server {
+        listen       8888;
+	server_name   ~.;
+	auth_basic &amp;quot;Restricted&amp;quot;;
+        auth_basic_user_file /var/passwd/nginx/.htpasswd;
+        proxy_connect;
+        proxy_max_temp_file_size 0;
+        resolver 8.8.8.8;
+        location / {
+           proxy_pass http://$http_host;
+           proxy_set_header Host $http_host;
+        }
+    }
+
+    # Everything else is denied
+    server {
+        listen       8888;
+        return 404;
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There are online tool generators for generating .htpasswd file.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Squid forward proxy&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It was very easy to set up Squid on my Windows machine.&lt;/p&gt;
+&lt;p&gt;I followed the instructions below for setting up a basic http forward proxy sans autehntication.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=bSHCiZq2TrU&quot;&gt;https://www.youtube.com/watch?v=bSHCiZq2TrU&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then followed the instructions below to set up authentication:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/yvanin/ef831720112c1f6ee8c3&quot;&gt;https://gist.github.com/yvanin/ef831720112c1f6ee8c3&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;auth_param basic program &amp;quot;/lib/squid/basic_ncsa_auth.exe&amp;quot; &amp;quot;/etc/squid/.htpasswd&amp;quot;
+acl ncsa_users proxy_auth REQUIRED
+http_access allow ncsa_users&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;HTTPS Proxy&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Setting up an https proxy looked not so easy on Squid. Hence, I tested my application just using http proxy and hope it would work just find with HTTP proxy.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with Apache Flink]]></title><description><![CDATA[Apache Flink
+Framework for stream (infinite) and batch (finite) data processing.
+Java / Scala / Python APIs
+Various library support…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/apache-flink/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/apache-flink/</guid><pubDate>Tue, 31 Mar 2020 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;Apache Flink&lt;/strong&gt;
+Framework for stream (infinite) and batch (finite) data processing.
+Java / Scala / Python APIs
+Various library support including ML libraries&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Big Data&lt;/strong&gt;
+Big Data describes datasets that are so large, complex or rapidly changing that they push the very limits of our analytical capability (Joel Gurin)
+3Vs of Big Data
+Volume - terabytes to petabutes of data
+Variety - different data sources - databses, logs, semi-structured data, social media data
+Velocity - data is coming faster
+Need not have all the Vs&lt;/p&gt;
+&lt;p&gt;Eamples of Big data:
+Google searh engine&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Jenkins 2 Fundamentals]]></title><description><![CDATA[Why Jenkins? Automate the deployment Conitunous Integration (eg: build the PRs and validate) Continuos Deployment Cruise Control (200…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/jenkins/jenkins/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/jenkins/jenkins/</guid><pubDate>Mon, 23 Mar 2020 23:50:37 GMT</pubDate><content:encoded>&lt;p&gt;Why Jenkins?&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Automate the deployment&lt;/li&gt;
 &lt;li&gt;Conitunous Integration (eg: build the PRs and validate)&lt;/li&gt;
