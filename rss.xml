@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 03 Apr 2020 10:23:23 GMT</lastBuildDate><item><title><![CDATA[Proxy]]></title><description><![CDATA[How to set up a forward proxy? nginx as forward proxy - did not work with authentication I tried to set up nginx as forward proxy on my…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/proxy/proxy/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/proxy/proxy/</guid><pubDate>Fri, 03 Apr 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;How to set up a forward proxy?&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tech Notes and some other stuff]]></title><description><![CDATA[For my quick reference]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 19 May 2020 05:14:47 GMT</lastBuildDate><item><title><![CDATA[Getting started with Kubernetes]]></title><description><![CDATA[Kuberenetes Basics Kubernetes is an open source container orchestration engine for automating deployment, scaling, and management of…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/kubernetes/kubernetes/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/kubernetes/kubernetes/</guid><pubDate>Mon, 18 May 2020 12:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;Kuberenetes Basics&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Kubernetes is an open source container orchestration engine for &lt;strong&gt;automating deployment, scaling, and management of containerized applications&lt;/strong&gt;. The open source project is hosted by the Cloud Native Computing Foundation (CNCF).&lt;/p&gt;
+&lt;p&gt;A Kubernetes cluster consists of two types of resources:&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Master&lt;/strong&gt; coordinates the cluster&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nodes&lt;/strong&gt; are the workers that run applications&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Master&lt;/strong&gt; is responsible for managing the cluster. The master coordinates all activities in your cluster, such as &lt;/p&gt;
+&lt;p&gt;_scheduling applications, &lt;/p&gt;
+&lt;p&gt;maintaining applications’ desired state, &lt;/p&gt;
+&lt;p&gt;scaling applications, &lt;/p&gt;
+&lt;p&gt;and rolling out new updates.
+_&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;node&lt;/strong&gt; is a VM or a physical computer that serves as a worker machine in a Kubernetes cluster. &lt;/p&gt;
+&lt;p&gt;_Each node has a Kubelet, which is an agent for managing the node and communicating with the Kubernetes master. &lt;/p&gt;
+&lt;p&gt;The node should also have tools for handling container operations, such as Docker or rkt. _&lt;/p&gt;
+&lt;p&gt;When you deploy applications on Kubernetes, you tell the master to start the application containers. The master schedules the containers to run on the cluster’s nodes. The nodes communicate with the master using the Kubernetes API, which the master exposes. End users can also use the Kubernetes API directly to interact with the cluster.&lt;/p&gt;
+&lt;p&gt;A Kubernetes cluster can be deployed on either physical or virtual machines.&lt;/p&gt;
+&lt;p&gt;Create a k8s cluster:&lt;/p&gt;
+&lt;p&gt;The following command starts a cluster with a single master node:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;minikube start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Minikube will start a vm and run a k8s cluster now.&lt;/p&gt;
+&lt;p&gt;The command line interface is called kubectl.&lt;/p&gt;
+&lt;p&gt;To view the cluster details, run:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl custer-info&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To view the nodes, run:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl get nodes&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Deploying on Kubernetes&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Once you have a running Kubernetes cluster, you can deploy your containerized applications on top of it.&lt;/p&gt;
+&lt;p&gt;To do so, you create a Kubernetes Deployment configuration. The Deployment instructs Kubernetes how to create and update instances of your application. Once you’ve created a Deployment, the Kubernetes master schedules the application instances included in that Deployment to run on individual Nodes in the cluster.&lt;/p&gt;
+&lt;p&gt;When you create a Deployment, you’ll need to specify the container image for your application and the number of replicas that you want to run. You can change that information later by updating your Deployment.&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;Kubernetes Pod&lt;/strong&gt; is a group of one or more Containers, tied together for the purposes of administration and networking. A Pod is the basic execution unit of a Kubernetes application - the smallest and simplest unit in the Kubernetes object model that you create or deploy. A Pod encapsulates an application’s container (or, in some cases, multiple containers), storage resources, a unique network identity (IP address), as well as options that govern how the container(s) should run. A Pod represents a unit of deployment: a single instance of an application in Kubernetes, which might consist of either a single container or a small number of containers that are tightly coupled and that share resources. Each Pod is meant to run a single instance of a given application. If you want to scale your application horizontally (to provide more overall resources by running more instances), you should use multiple Pods, one for each instance. In Kubernetes, this is typically referred to as replication. Pods that are running inside Kubernetes are running on a private, isolated network. By default they are visible from other pods and services within the same kubernetes cluster, but not outside that network. Pods are the atomic unit on the Kubernetes platform. When we create a Deployment on Kubernetes, that Deployment creates Pods with containers inside them (as opposed to creating containers directly). Each Pod is tied to the Node where it is scheduled, and remains there until termination (according to restart policy) or deletion. In case of a Node failure, identical Pods are scheduled on other available Nodes in the cluster.&lt;/p&gt;
+&lt;p&gt;A Pod is a group of one or more application containers (such as Docker or rkt) and includes shared storage (volumes), IP address and information about how to run them.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Containers should only be scheduled together in a single Pod if they are tightly coupled and need to share resources such as disk.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A &lt;strong&gt;Kubernetes Deployment&lt;/strong&gt; checks on the health of your Pod and restarts the Pod’s Container if it terminates. &lt;strong&gt;Deployments&lt;/strong&gt; are the recommended way to manage the creation and scaling of Pods.&lt;/p&gt;
+&lt;p&gt;`creating a deployment:&lt;/p&gt;
+&lt;p&gt;kubectl create deployment hello-node —image=k8s.gcr.io/echoserver:1.4&lt;/p&gt;
+&lt;p&gt;Viewing a deployment:&lt;/p&gt;
+&lt;p&gt;kubectl get deployments&lt;/p&gt;
+&lt;p&gt;View the pod:&lt;/p&gt;
+&lt;p&gt;kubectl get pods`&lt;/p&gt;
+&lt;p&gt;By default, the Pod is only accessible by its internal IP address within the Kubernetes cluster. To make the Container accessible from outside the Kubernetes virtual network, you have to expose the Pod as a K&lt;strong&gt;ubernetes Service.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl expose deployment hello-node --type=LoadBalancer --port=8080&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The —type=LoadBalancer flag indicates that you want to expose your Service outside of the cluster.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl get services&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt; The common format of a kubectl command is: &lt;strong&gt;kubectl action resource&lt;/strong&gt;. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nodes&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A Pod always runs on a Node. A Node is a worker machine in Kubernetes and may be either a virtual or a physical machine, depending on the cluster. Each Node is managed by the Master. A Node can have multiple pods, and the Kubernetes master automatically handles scheduling the pods across the Nodes in the cluster. The Master’s automatic scheduling takes into account the available resources on each Node.&lt;/p&gt;
+&lt;p&gt;Every Kubernetes Node runs at least:&lt;/p&gt;
+&lt;p&gt;Kubelet, a process responsible for communication between the Kubernetes Master and the Node; it manages the Pods and the containers running on a machine.&lt;/p&gt;
+&lt;p&gt;A container runtime (like Docker, rkt) responsible for pulling the container image from a registry, unpacking the container, and running the application.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl get - list resources
+kubectl describe - show detailed information about a resource
+kubectl logs - print the logs from a container in a pod
+kubectl exec - execute a command on a container in a pod&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Although each Pod has a unique IP address, those IPs are not exposed outside the cluster without a &lt;strong&gt;Service&lt;/strong&gt;. Services allow your applications to receive traffic. Services can be exposed in different ways by specifying a type in the ServiceSpec:&lt;/p&gt;
+&lt;p&gt;ClusterIP (default) - Exposes the Service on an internal IP in the cluster. This type makes the Service only reachable from within the cluster.&lt;/p&gt;
+&lt;p&gt;NodePort - Exposes the Service on the same port of each selected Node in the cluster using NAT. Makes a Service accessible from outside the cluster using &lt;NodeIP&gt;:&lt;NodePort&gt;. Superset of ClusterIP.&lt;/p&gt;
+&lt;p&gt;LoadBalancer - Creates an external load balancer in the current cloud (if supported) and assigns a fixed, external IP to the Service. Superset of NodePort.&lt;/p&gt;
+&lt;p&gt;ExternalName - Exposes the Service using an arbitrary name (specified by externalName in the spec) by returning a CNAME record with the name. No proxy is used. This type requires v1.7 or higher of kube-dns.&lt;/p&gt;
+&lt;p&gt;A Service routes traffic across a set of Pods. Services are the abstraction that allow pods to die and replicate in Kubernetes without impacting your application. Discovery and routing among dependent Pods is handled by Kubernetes Services.&lt;/p&gt;
+&lt;p&gt;Services match a set of Pods using labels and selectors, a grouping primitive that allows logical operation on objects in Kubernetes. &lt;/p&gt;
+&lt;p&gt;To create a new service and expose it to external traffic we’ll use the expose command.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;kubectl expose deployment/kubernetes-bootcamp —type=“NodePort” —port 8080&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The Deployment created automatically a label for our Pod. With describe deployment command we can see the name of the label:&lt;/p&gt;
+&lt;p&gt;kubectl describe deployment&lt;/p&gt;
+&lt;p&gt;Let’s use this label to query our list of Pods. We’ll use the kubectl get pods command with -l as a parameter, followed by the label values:&lt;/p&gt;
+&lt;p&gt;kubectl get pods -l app=kubernetes-bootcamp&lt;/p&gt;
+&lt;p&gt;You can do the same to list the existing services:&lt;/p&gt;
+&lt;p&gt;kubectl get services -l app=kubernetes-bootcamp&lt;/p&gt;
+&lt;p&gt;To apply a new label we use the label command followed by the object type, object name and the new label:&lt;/p&gt;
+&lt;p&gt;kubectl label pod $POD_NAME app=v1 —overwrite=true&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scaling&lt;/strong&gt; is accomplished by changing the number of &lt;strong&gt;replicas&lt;/strong&gt; in a Deployment. Scaling out a Deployment will ensure new Pods are created and scheduled to Nodes with available resources. Running multiple instances of an application will require a way to distribute the traffic to all of them. Services have an** integrated load-balancer **that will distribute network traffic to all Pods of an exposed Deployment. Services will monitor continuously the running Pods using endpoints, to ensure the traffic is sent only to available Pods.&lt;/p&gt;
+&lt;p&gt;To see the ReplicaSet created by the Deployment, run &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;kubectl get rs&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;kubectl scale deployments/kubernetes-bootcamp —replicas=4&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Use the same command to scale up and down.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Rolling updates&lt;/strong&gt; allow Deployments’ update to take place with zero downtime by incrementally updating Pods instances with new ones.&lt;/p&gt;
+&lt;p&gt;To update the image of the application to version 2, use the set image command, followed by the deployment name and the new image version:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;kubectl rollout status deployments/kubernetes-bootcamp&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Kubernetes provides you with:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Service discovery and load balancing&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Kubernetes can expose a container using the DNS name or using their own IP address. If traffic to a container is high, Kubernetes is able to load balance and distribute the network traffic so that the deployment is stable.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Storage orchestration&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Kubernetes allows you to automatically mount a storage system of your choice, such as local storages, public cloud providers, and more.&lt;/p&gt;
+&lt;p&gt;Automated rollouts and rollbacks&lt;/p&gt;
+&lt;p&gt;You can describe the desired state for your deployed containers using Kubernetes, and it can change the actual state to the desired state at a controlled rate. For example, you can automate Kubernetes to create new containers for your deployment, remove existing containers and adopt all their resources to the new container.&lt;/p&gt;
+&lt;p&gt;Automatic bin packing&lt;/p&gt;
+&lt;p&gt;You provide Kubernetes with a cluster of nodes that it can use to run containerized tasks. You tell Kubernetes how much CPU and memory (RAM) each container needs. Kubernetes can fit containers onto your nodes to
+make the best use of your resources.&lt;/p&gt;
+&lt;p&gt;Self-healing&lt;/p&gt;
+&lt;p&gt;Kubernetes restarts containers that fail, replaces containers, kills containers that don’t respond to your user-defined health check, and doesn’t advertise them to clients until they are ready to serve.&lt;/p&gt;
+&lt;p&gt;Secret and configuration management&lt;/p&gt;
+&lt;p&gt;Kubernetes lets you store and manage sensitive information, such as passwords, OAuth tokens, and SSH keys. You can deploy and update secrets and application configuration without rebuilding your container images, and without exposing secrets in your stack configuration.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Proxy]]></title><description><![CDATA[How to set up a forward proxy? nginx as forward proxy - did not work with authentication I tried to set up nginx as forward proxy on my…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/proxy/proxy/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/proxy/proxy/</guid><pubDate>Fri, 03 Apr 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;How to set up a forward proxy?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;nginx as forward proxy - did not work with authentication&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;I tried to set up nginx as forward proxy on my Windows machine and it did not work. Well, it did work when the proxy was not configured for authentication. &lt;/p&gt;
 &lt;p&gt;This was how I set it up.&lt;/p&gt;
@@ -235,30 +337,7 @@ const expect = chai.expect  // creat a short cut for expect
 import chaiAsPromised from ‘chai-as-promised’
 chai.use(chaiAsPromised)&lt;/p&gt;
 &lt;p&gt;Sinon - mocking library most commonly used in JS&lt;/p&gt;
-&lt;p&gt;Gulp, Grunt -  task runners&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with mobile app devlopment using Flutter]]></title><description><![CDATA[What is Flutter?
-A great tool to create mobile apps fast for Android and iOS from Google. Native - Android studio, Swift
-But need one for…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/flutter/flutter/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/flutter/flutter/</guid><pubDate>Thu, 23 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is Flutter?&lt;/strong&gt;
-A great tool to create mobile apps fast for Android and iOS from Google.&lt;/p&gt;
-&lt;p&gt;Native - Android studio, Swift
-But need one for each &lt;/p&gt;
-&lt;p&gt;Hybrid - Single code base
-Ionic, React Native, Cordova
-Xamarin
-Flutter&lt;/p&gt;
-&lt;p&gt;Web
-You access then from a browser. Can share the same code for any system.
-But a webiste int eh forma of an app.&lt;/p&gt;
-&lt;p&gt;Flutter - &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Hot relaod (Just in time recompilation)&lt;/li&gt;
-&lt;li&gt;Also Code is compliled to native code for fast experience (for production)&lt;/li&gt;
-&lt;li&gt;Single code base for Androis and iOS&lt;/li&gt;
-&lt;li&gt;May 2017 Google announced Flutter&lt;/li&gt;
-&lt;li&gt;December 2018, stable release was announced&lt;/li&gt;
-&lt;li&gt;Language used is Dart (developed by Google) - Object Oriented&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;VS Code can be used for developed
-Install both Flutter and VS Code on your machine&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL? GraphQL is a query language / API standard  that was invented and open-sourced by Facebook. GraphQL is a syntax that…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Gulp, Grunt -  task runners&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Getting started with GraphQL]]></title><description><![CDATA[What is GraphQL? GraphQL is a query language / API standard  that was invented and open-sourced by Facebook. GraphQL is a syntax that…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/GraphQL/graphql/</guid><pubDate>Mon, 20 Jan 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;What is GraphQL?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;GraphQL is a query language / API standard  that was invented and open-sourced by Facebook.&lt;/p&gt;
 &lt;p&gt;GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a server to a client. &lt;/p&gt;
 &lt;p&gt;It lets the client specify exactly what data it needs. GraphQL clients are in control of the data they need. They will request for the data that they need (APIs return all the data where as graphQL
