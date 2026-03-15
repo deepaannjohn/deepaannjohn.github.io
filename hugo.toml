@@ -1,3 +1,65 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Project'
+baseURL = "https://deepaannjohn.github.io/"
+languageCode = "en-us"
+title = "Deepa Ann John"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.highlight]
+    style = "dracula"
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  env = "production"
+  author = "Deepa Ann John"
+  description = "Personal technical blog"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowTableOfContents = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+
+  [params.profileMode]
+    enabled = true
+    title = "Deepa Ann John"
+    subtitle = "Software Engineer · Writing about cloud, Kubernetes, and distributed systems"
+    [[params.profileMode.links]]
+      name = "GitHub"
+      url = "https://github.com/deepaannjohn"
+      icon = "github"
+    [[params.profileMode.links]]
+      name = "LinkedIn"
+      url = "https://linkedin.com/in/deepaannjohn"
+      icon = "linkedin"
+
+  [params.assets]
+    disableHLJS = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[menu]
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = 3
