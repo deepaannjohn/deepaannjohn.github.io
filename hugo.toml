@@ -34,14 +34,14 @@ theme = "PaperMod"
   [params.profileMode]
     enabled = true
     title = "Deepa Ann John"
-    subtitle = "Software Engineer · Writing about cloud, Kubernetes, and distributed systems"
+    subtitle = "Technical Architect · Writing about technology"
     [[params.profileMode.links]]
       name = "GitHub"
       url = "https://github.com/deepaannjohn"
       icon = "github"
     [[params.profileMode.links]]
       name = "LinkedIn"
-      url = "https://linkedin.com/in/deepaannjohn"
+      url = "https://www.linkedin.com/in/deepa-ann-john-bb801924/"
       icon = "linkedin"
 
   [params.assets]
