@@ -32,7 +32,7 @@ A corporate client sends a file containing hundreds of thousands of credit trans
 - **Account Deduction & Pricing** — the client account is debited, fees are calculated
 - **Reporting & Downstream Feeds** — data flows to reporting systems, data lakes, and downstream consumers
 
-Each of these steps may be owned by a different application, team, or even a third-party vendor system. Some interactions are synchronous — REST APIs waiting for a response. Others are asynchronous — messages flowing through RabbitMQ or Kafka, processed in the background.
+Each of these steps may be owned by a different application, team, or even a third-party vendor system. Some interactions are synchronous — REST APIs waiting for a response. Others are asynchronous — messages flowing through a broker, processed in the background.
 
 And here's where it gets complex: processing happens at multiple levels simultaneously. A *file* is processed as a whole. Each *transaction* within it is processed individually. Results are then aggregated back at the file level. And then split again at the transaction level for downstream systems.
 
@@ -80,16 +80,69 @@ A file with 100,000 transactions, each touching 8–10 services, produces an alm
 
 The answer is not to abandon tracing — it's to be **strategic about what you trace and how you link it**.
 
-The recommended approach:
+## Correlating Across a Multi-App Payment Platform
+
+In an enterprise payment platform, a single file ingestion can trigger processing across dozens of microservices spanning multiple applications. A file containing many remittances, each with multiple transactions, results in thousands of distributed traces — each isolated by default. The challenge is not just tracing within a service, but answering business questions like: *which services processed this transaction?* or *what happened to this file across the entire platform?*
+
+The naive solution — a single trace spanning everything — does not scale. Distributed async systems break parent-child trace relationships at every queue boundary. Instead, the right pattern is **structured tag propagation**: injecting business correlation identifiers (`file.id`, `remittance.id`, `transaction.id`) into every message's envelope headers at the point of origin, extracting and re-injecting them at every consumer, and stamping every span with these identifiers as indexed tags.
+
+In Elastic APM, these tags become searchable labels. A search for `transaction.id = "TXN123"` surfaces every trace across every application that touched that transaction — regardless of whether those traces are linked by SpanLinks or not. This gives operations teams three independent lenses into the platform: file-level, remittance-level, and transaction-level — without requiring a single monolithic trace.
+
+The key discipline is **never dropping context**. Even when a downstream service only processes at transaction level and has no concept of the originating file, the file ID must still flow through message headers and be stamped on spans. Observability is only as complete as the weakest link in the propagation chain.
+
+### The Right Instrumentation Strategy
+
+The recommended approach for a platform of this scale:
 
 - Instrument at the **service level** using spans, capturing entry, exit, and key decision points within each service
-- Use **trace context propagation** to link spans across service boundaries — both synchronous (HTTP headers) and asynchronous (message headers in RabbitMQ/Kafka)
+- Use **trace context propagation** to link spans across service boundaries — both synchronous (HTTP headers) and asynchronous (message envelope headers in your chosen messaging infrastructure)
 - Use **tags and attributes** on spans — file ID, transaction ID, client ID, processing stage — so you can search and correlate across the entire chain without needing a single monolithic trace
 - For truly high-volume transaction processing, consider **sampling strategies** that preserve full fidelity for error paths and SLA breaches, while sampling routine successful flows
 
 This gives you the ability to answer: *where is my file right now, which service is holding it, and is it on track?*
 
----
+### Why Auto-Instrumentation Is Not Enough — and Can Actually Hurt
+
+It is tempting to enable auto-instrumentation across all services and let the framework do the work. For individual application development and debugging, this is perfectly reasonable. But at **platform observability level**, auto-instrumentation becomes a liability.
+
+Auto-instrumentation captures everything — every HTTP call, every database query, every middleware hop. Across dozens of microservices processing hundreds of thousands of messages, this floods your APM backend with noise that drowns out the signals that actually matter. Worse, it creates a false sense of coverage: you see a lot of spans, but none of them carry the business context (file ID, transaction ID, processing stage) that makes traces meaningful at the platform level.
+
+**Manual instrumentation is the only reliable path to meaningful platform observability.** It requires discipline — every team must instrument their service at the right points, propagate correlation headers, and stamp spans with business identifiers. But the result is a clean, queryable signal rather than an overwhelming stream of technical noise.
+
+### Separating Platform Observability from Application Observability
+
+These are two distinct concerns and should be treated as such:
+
+- **Application observability** — owned by individual teams, may use auto-instrumentation, focused on debugging and performance within a single service or application. Teams are free to use whatever tooling works for them.
+- **Platform observability** — owned centrally, manually instrumented, focused on business flows that span multiple applications. This feeds the main APM environment and must be kept clean and purposeful.
+
+Mixing these two realms in the same APM environment is a common mistake. The recommended pattern is to use the **OpenTelemetry Collector pipeline** to separate them:
+
+```
+Service auto-instrumentation
+        │
+        ▼
+OTel Collector (per app / team)
+        │
+        ├──► Team APM environment  (full fidelity, auto-instrumented, for dev/debug)
+        │
+        └──► Filter / transform
+                    │
+                    ▼
+            Platform OTel Collector
+                    │
+                    ▼
+            Platform APM  (manual spans only, business context tags)
+```
+
+The platform collector applies **filtering rules** — only forwarding spans that carry the required business correlation tags (`file.id`, `transaction.id` etc.) and dropping auto-instrumented noise. This can be configured using the OTel Collector's `filterprocessor` and `attributesprocessor`:
+
+- Drop spans missing `file.id` or `transaction.id` tags
+- Drop spans from known noisy auto-instrumented sources
+- Enrich spans with environment metadata before forwarding
+
+This gives each team the freedom to instrument their own services however they like, while keeping the platform observability layer clean, purposeful, and queryable.
+
 
 ## Observability Cannot Be an Afterthought
 
